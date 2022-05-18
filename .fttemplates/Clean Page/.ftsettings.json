@@ -1,0 +1,5 @@
+{
+  "customVariables": ["PageName"],
+  "omitParentDirectory": true,
+  "omitFTName": true
+}
