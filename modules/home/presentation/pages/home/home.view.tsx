@@ -14,6 +14,11 @@ export interface POst {
   publishedAt: string;
   faTitle: string;
 }
+export interface CAtegory {
+  id: number;
+  faTitle: string;
+  enTitle: string;
+}
 export default function HomeView(props: PropTypes) {
   return (
     <div className={styles.home}>
@@ -28,13 +33,30 @@ export default function HomeView(props: PropTypes) {
 
 const dataMostSeen = {
   title: MostSeenIcon,
-  icon: "",
   posts: [
     {
       image: "/assets/images/defaultImgPost.svg",
       category: "category1",
       publishedAt: "time1",
       faTitle: "title1",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
     },
     {
       image: "/assets/images/defaultImgPost.svg",
@@ -65,13 +87,30 @@ const dataMostSeen = {
 
 const dataNewstPost = {
   title: NewstPostIcon,
-  icon: "",
   posts: [
     {
       image: "/assets/images/defaultImgPost.svg",
       category: "category1",
       publishedAt: "time1",
       faTitle: "title1",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
     },
     {
       image: "/assets/images/defaultImgPost.svg",
@@ -102,13 +141,63 @@ const dataNewstPost = {
 
 const dataCategoriesPost = {
   title: CategoriesIcon,
-  icon: "",
+  isCategory: true,
+  listCategories: [
+    {
+      id: 1,
+      faTitle: "Geologist",
+      enTitle: "miss",
+    },
+    {
+      id: 1,
+      faTitle: "Geologist",
+      enTitle: "miss",
+    },
+    {
+      id: 1,
+      faTitle: "Geologist",
+      enTitle: "miss",
+    },
+    {
+      id: 1,
+      faTitle: "Geologist",
+      enTitle: "miss",
+    },
+    {
+      id: 1,
+      faTitle: "Geologist",
+      enTitle: "miss",
+    },
+    {
+      id: 2,
+      faTitle: "Power Generating Plant Operator",
+      enTitle: "ms",
+    },
+  ],
   posts: [
     {
       image: "/assets/images/defaultImgPost.svg",
       category: "category1",
       publishedAt: "time1",
       faTitle: "title1",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
+    },
+    {
+      image: "/assets/images/defaultImgPost.svg",
+      category: "category2",
+      publishedAt: "time2",
+      faTitle: "title2",
     },
     {
       image: "/assets/images/defaultImgPost.svg",

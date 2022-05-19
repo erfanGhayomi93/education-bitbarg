@@ -1,10 +1,15 @@
 .summaryPosts {
   margin: 40px auto;
-  .title {
-    margin-bottom: 33px;
-    img {
-      width: 100%;
-      height: 100%;
+  .parentTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      margin-bottom: 33px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
   .box {
@@ -12,9 +17,39 @@
     flex-wrap: wrap;
   }
 }
+.showMore {
+  margin-bottom: 40px;
+}
 
 @media only screen and (max-width: 1200px) {
   .summaryPosts {
+    .parentTitle {
+      flex-direction: column;
+      align-items: flex-start;
+      .chips {
+        padding-bottom: 25px;
+        overflow: auto;
+        width: 100%;
+        .chip {
+          &:first-child {
+            margin-right: 12px;
+          }
+          &:last-child {
+            margin-left: 12px !important;
+          }
+        }
+      }
+      &::after {
+        content: "";
+        width: 100%;
+        height: 10px;
+        position: relative;
+        display: block;
+        bottom: 10px;
+        background-color: white;
+        z-index: 2000;
+      }
+    }
     .box {
       justify-content: space-around;
     }
@@ -24,28 +59,29 @@
   .summaryPosts {
     padding-left: 0;
     padding-right: 0;
-    .title {
-      padding: 0 12px;
-    }
-    .wrapper {
-      .parent {
-        margin-bottom: -10px;
-        .box {
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          overflow: auto;
-        }
-        &::after {
-          content: "";
-          width: 100%;
-          height: 10px;
-          position: relative;
-          display: block;
-          bottom: 10px;
-          background-color: white;
-          z-index: 2000;
+    .parentTitle {
+      flex-direction: column;
+      .title {
+        padding: 0 12px;
+        img {
+          height: 48px !important;
         }
       }
+    }
+    .box {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow: auto;
+    }
+    &::after {
+      content: "";
+      width: 100%;
+      height: 10px;
+      position: relative;
+      display: block;
+      bottom: 10px;
+      background-color: white;
+      z-index: 2000;
     }
   }
 }

@@ -27,7 +27,7 @@ const lightPalette: PaletteOptions = {
   // error: { main: "#E74560", light: "#F5A09B" },
   error: { main: "#EB4137", light: "#F5A09BB2", lighter: "#F5A09B1A" },
   warning: { main: "#FBBD06", light: "#FDDE82B2" },
-  info: { main: "#4A7F9C", light: "#60abd547", lighter: "#4A7F9C1A" },
+  info: { main: "#D0E1FB", light: "#60abd547", lighter: "#4A7F9C1A" , contrastText : "#5093E2" },
   background: {
     default: "#fff",
     secondary: "#fafafa",
