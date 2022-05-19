@@ -1,0 +1,109 @@
+.headerHome {
+  position: relative;
+  overflow: hidden;
+  .box {
+    display: flex;
+    position: relative;
+    .content {
+      width: 45%;
+      margin-left: 5%;
+      margin-top: 100px;
+      padding-bottom: 60px;
+      h1 {
+        font-weight: 800;
+        font-size: 57px;
+        line-height: 102px;
+      }
+      h6 {
+        font-weight: 400;
+        line-height: 32px;
+      }
+      .subContent {
+        display: flex;
+        .item {
+          margin: 42px 0;
+          padding: 0 42px;
+          text-align: center;
+          &:nth-child(1) {
+            border-left: 1px solid var(--text-mute);
+          }
+          span {
+            display: block;
+            padding: 5px 0;
+            direction: ltr;
+            &:nth-child(1) {
+              font-weight: 700;
+            }
+            &:nth-child(2) {
+              color: var(--text-mute);
+            }
+          }
+        }
+      }
+    }
+    .image {
+      width: 50%;
+      margin-top: 30px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .icon1 {
+      position: absolute;
+      right: -20px;
+    }
+  }
+  .icon2 {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% + 20px);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .headerHome {
+    padding-top: 50px;
+    .icon1 {
+      top: -50px;
+      overflow: hidden;
+    }
+    .box {
+      flex-direction: column-reverse;
+      .image {
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
+      }
+      .content {
+        width: 100%;
+        margin: 0;
+        h1 {
+          font-size: var(--font-h2);
+          line-height: 62px;
+          width: 70%;
+        }
+        h6 {
+          font-size: var(--font-h6);
+          line-height: 32px;
+        }
+        .subContent {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          .item {
+            margin: 26px auto;
+            padding: 0 62px;
+          }
+        }
+      }
+    }
+    .icon2 {
+      top: 350px;
+      left: -40px;
+      width: 140px;
+      height: 140px;
+    }
+  }
+}
