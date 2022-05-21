@@ -25,7 +25,7 @@
           padding: 0 42px;
           text-align: center;
           &:nth-child(1) {
-            border-left: 1px solid var(--text-mute);
+            border-left: 1px solid var(---text-mute);
           }
           span {
             display: block;
@@ -35,7 +35,7 @@
               font-weight: 700;
             }
             &:nth-child(2) {
-              color: var(--text-mute);
+              color: var(---text-mute);
             }
           }
         }

@@ -1,5 +1,5 @@
 .footer {
-  margin: 100px 0 75px;
+  margin: 160px 0 75px;
   .box {
     display: flex;
     .item {
@@ -12,7 +12,7 @@
           margin-bottom: 12px;
           &::before {
             content: "\2022";
-            color: var(--text-mute);
+            color: var(---text-mute);
             font-weight: bold;
             display: inline-block;
             margin-left: 8px;
@@ -26,7 +26,7 @@
       margin-bottom: 16px;
     }
     .text {
-      color: var(--text-dark-mute);
+      color: var(---text-dark-mute);
       width: 380px;
     }
   }
@@ -34,6 +34,7 @@
 
 @media only screen and (max-width: 1200px) {
   .footer {
+    margin-top: 90px;
     .text {
       width: 100% !important;
     }

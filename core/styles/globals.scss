@@ -211,7 +211,7 @@ img {
   text-align: right;
 }
 .primary {
-  color: var(--primary-main);
+  color: var(---primary-main);
 }
 
 .overflow-visible {
@@ -328,8 +328,8 @@ span.status-chip {
     background-color: var(--error-lighter);
   }
   &.primary {
-    color: var(--primary-main);
-    background-color: var(--primary-lighter);
+    color: var(---primary-main);
+    background-color: var(---primary-lighter);
   }
   &.warning {
     color: var(--warning-main);
@@ -409,7 +409,7 @@ span.status-chip {
       width: 7px;
       height: 7px;
       border-radius: 4px;
-      background-color: var(--primary-main);
+      background-color: var(---primary-main);
     }
   }
 }
