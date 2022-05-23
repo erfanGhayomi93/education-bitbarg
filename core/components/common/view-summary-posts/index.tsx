@@ -1,18 +1,21 @@
-import {
-  CAtegory,
-  POst,
-} from "@/modules/home/presentation/pages/home/home.view";
+import { CAtegory, POst } from "@/modules/home/domain/entities/home";
+import { useEffect } from "react";
 import ViewSummaryPostsView from "./view-summary-posts.view";
 
 type PropTypes = {
-  data: {
-    title: string;
-    posts: POst[];
-    listCategories?: CAtegory[];
-    isCategory?: boolean;
-  };
+  title: any;
+  data: POst[];
+  category?: CAtegory[];
+  activeCategory?: string | null;
+  setActiveCategory?: any;
 };
-
-export default function ViewSummaryPostsComponent({ data }: PropTypes) {
-  return <ViewSummaryPostsView data={data} />;
+export default function ViewSummaryPostsComponent(props: PropTypes) {
+  const { activeCategory, setActiveCategory } = props;
+  return (
+    <ViewSummaryPostsView
+      {...props}
+      activeCategory={activeCategory}
+      setActiveCategory={setActiveCategory}
+    />
+  );
 }

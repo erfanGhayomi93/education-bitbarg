@@ -1,4 +1,4 @@
-import { POst } from "@/modules/home/presentation/pages/home/home.view";
+import { POst } from "@/modules/home/domain/entities/home";
 import CardPostComponentView from "./card-post.view";
 
 type PropTypes = {

@@ -1,6 +1,12 @@
 .cardPost {
   width: 276px;
   margin: 0 0 56px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+  }
   &:nth-child(4n + 4) {
     margin-left: 0;
   }
@@ -15,17 +21,13 @@
     justify-content: space-between;
     align-items: center;
     .category {
-      color: var(---primary-main);
-      background-color: var(---primary-light);
-      border-radius: 35px;
-      padding: 10px;
-      margin: 12px 0;
-      font-weight: 600;
+      max-width: 65%;
     }
     .publishedAt {
       color: var(---text-dark-mute);
       font-weight: 600;
       margin: 12px 5px 12px 0;
+      white-space: nowrap;
     }
   }
   .content {

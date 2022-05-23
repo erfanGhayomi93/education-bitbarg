@@ -2,7 +2,7 @@ import "@/core/styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { themeLight, themeDark } from "@/core/theme";
-import { CacheProvider, EmotionCache, jsx } from "@emotion/react";
+import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@/core/theme/emotionCache";
 import createRtlCache from "@/core/theme/rtl";
 import localize from "@/core/localization";

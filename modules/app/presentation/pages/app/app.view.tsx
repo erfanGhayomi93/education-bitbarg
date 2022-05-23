@@ -1,4 +1,3 @@
-// import styles from './app.module.scss';
 import { Grow, CssBaseline, IconButton } from "@mui/material";
 import type { AppProps } from "next/app";
 import { SnackbarProvider } from "notistack";

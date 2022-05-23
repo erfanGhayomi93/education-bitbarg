@@ -1,9 +1,9 @@
 import { createTheme } from "@mui/material/styles";
 import { ThemeOptions, PaletteOptions } from "@mui/material";
-import { alpha, CSSInterpolation } from "@mui/system";
+import { alpha, borderColor, CSSInterpolation } from "@mui/system";
 
 const typography = {
-  fontFamily: "IRANSans, Arial",
+  fontFamily: "IRANSansXFaNum, Arial",
   fontSize: 12,
   h1: { fontSize: "1.714285714285714rem", fontWeight: 400 }, //24
   h2: { fontSize: "1.571428571428571rem", fontWeight: 400 }, //22
@@ -268,17 +268,26 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
       // },
       MuiChip: {
         styleOverrides: {
+          outlined: {
+            backgroundColor: "white",
+            borderColor : "#D2D2D2", 
+            color : "black"
+          },
           // root: { height: 20 },
           label: {
-            display: "inline-flex",
-            // paddingLeft: 10,
-            // paddingRight: 10,
+            display: "block",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           },
           root: {
             "&.MuiChip-colorDefault": {
               backgroundColor: palette.action?.disabledBackground,
               // color: (palette.secondary as any).main,
             },
+            "&:hover":{
+              background : "unset"
+            }
           },
         },
         variants: [

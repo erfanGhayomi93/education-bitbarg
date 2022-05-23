@@ -7,7 +7,7 @@
 // @import "swiper/css/pagination";
 
 @import "/core/theme/variables.scss";
-@import "/public/fonts/IRANSans/style.scss";
+@import "/fonts/style.css";
 
 html {
   font-size: 16.333333333333333px;
@@ -527,9 +527,9 @@ span.status-chip {
   }
 
   .crisp-client #crisp-chatbox * {
-    font-family: IRANSans, Arial !important;
+    font-family: IRANSansXFaNum, Arial !important;
     &::placeholder {
-      font-family: IRANSans, Arial !important;
+      font-family: IRANSansXFaNum, Arial !important;
     }
   }
 }

@@ -3,13 +3,15 @@
   .parentTitle {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     .title {
       margin-bottom: 33px;
       img {
         width: 100%;
         height: 100%;
       }
+    }
+    .chips {
+      margin-top: 23px;
     }
   }
   .box {

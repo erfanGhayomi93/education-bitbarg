@@ -31,8 +31,10 @@
       .tags {
         margin-top: 12px;
         display: flex;
+        flex-wrap: wrap;
         span {
           margin-left: 16px;
+          margin-bottom: 10px;
           color: var(---primary-tags);
           display: inline-block;
         }
@@ -81,6 +83,9 @@
       }
       .icon2 {
         display: none;
+      }
+      .chip {
+        max-width: 200px;
       }
     }
   }
