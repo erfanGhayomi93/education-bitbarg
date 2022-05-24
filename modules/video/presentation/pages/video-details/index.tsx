@@ -10,9 +10,7 @@ export default function VideoDetailsComponent(props: PropTypes) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const [detailsData] = await Promise.all([
-    getDetailsData(context?.params?.id),
-  ]);
+  const detailsData = await getDetailsData(context?.params?.id);
 
   if (!detailsData.data || detailsData.error) throw detailsData.error;
 
@@ -23,8 +21,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  console.log("context", context);
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { id: "tire-builder" } }],
     fallback: "blocking",

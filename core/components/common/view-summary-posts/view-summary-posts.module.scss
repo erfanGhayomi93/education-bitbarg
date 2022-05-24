@@ -12,6 +12,9 @@
     }
     .chips {
       margin-top: 23px;
+      .chip {
+        cursor: pointer;
+      }
     }
   }
   .box {

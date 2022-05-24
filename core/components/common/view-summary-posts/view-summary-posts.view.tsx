@@ -43,7 +43,7 @@ export default function viewSummaryPostsView({
                     variant={
                       activeCategory === item.enTitle ? "filled" : "outlined"
                     }
-                    clickable
+                    clickable={false}
                     color="info"
                     deleteIcon={<DoneIcon />}
                     onDelete={undefined}

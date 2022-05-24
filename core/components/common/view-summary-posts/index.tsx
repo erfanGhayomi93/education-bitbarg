@@ -1,5 +1,4 @@
 import { CAtegory, POst } from "@/modules/home/domain/entities/home";
-import { useEffect } from "react";
 import ViewSummaryPostsView from "./view-summary-posts.view";
 
 type PropTypes = {

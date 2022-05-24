@@ -56,9 +56,9 @@ class Http {
       },
     };
     if (token && !_config.headers.Authorization) {
-      _config.headers.Authorization = "Bearer " + token;
+      // _config.headers.Authorization = "Bearer " + token;
     }
-    if (deviceId) _config.headers["X-Device-Detail"] = deviceId;
+    // if (deviceId) _config.headers["X-Device-Detail"] = deviceId;
     return _config;
   }
   private errorHandler(resolve: (value: ResponseType<any>) => void) {

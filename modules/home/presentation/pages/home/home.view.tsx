@@ -4,21 +4,19 @@ import styles from "./home.module.scss";
 import MostSeenIcon from "@/public/assets/images/mostSeenPost.svg";
 import NewstPostIcon from "@/public/assets/images/newstPost.svg";
 import CategoriesIcon from "@/public/assets/images/categories.svg";
-import axios from "axios";
 
 type PropTypes = {
   data: any;
   activeCategory?: string;
   setActiveCategory?: any;
-};
-const fetcher = async (url: any) => {
-  return await axios.get(url).then((res) => res.data);
+  dataCategoriesItems?: any;
 };
 
 export default function HomeView({
   data,
   activeCategory,
   setActiveCategory,
+  dataCategoriesItems,
 }: PropTypes) {
   const { mostSeenPosts, newestPosts, categories, categoryPosts } = data.items;
 
@@ -28,7 +26,7 @@ export default function HomeView({
       <ViewSummaryPostsComponent data={mostSeenPosts} title={MostSeenIcon} />
       <ViewSummaryPostsComponent data={newestPosts} title={NewstPostIcon} />
       <ViewSummaryPostsComponent
-        data={categoryPosts}
+        data={dataCategoriesItems?.result?.items.posts || categoryPosts}
         title={CategoriesIcon}
         category={categories}
         activeCategory={activeCategory}

@@ -285,9 +285,9 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
               backgroundColor: palette.action?.disabledBackground,
               // color: (palette.secondary as any).main,
             },
-            "&:hover":{
-              background : "unset"
-            }
+            // "&:hover":{
+            //   background : "unset"
+            // }
           },
         },
         variants: [

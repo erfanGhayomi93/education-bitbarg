@@ -10,11 +10,12 @@ type PropTypes = {
 export default function HomeComponent(props: PropTypes) {
   const { categories } = props.data.items;
   const [activeCategory, setActiveCategory] = useState(categories[0].enTitle);
-  const { data, error } = useGetCategoryDs(activeCategory);
+  const { data } = useGetCategoryDs(activeCategory);
 
   return (
     <HomeView
       {...props}
+      dataCategoriesItems={data}
       activeCategory={activeCategory}
       setActiveCategory={setActiveCategory}
     />

@@ -10,10 +10,11 @@ type PropTypes = {
 };
 
 const VideoDetails: NextPage<PropTypes> = (props) => {
+  const { faTitle } = props.data.post;
   return (
     <>
       <Head>
-        <title>video</title>
+        <title>{faTitle}</title>
       </Head>
       <VideoDetailsComponent {...props} />
     </>
