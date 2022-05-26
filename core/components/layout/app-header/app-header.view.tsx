@@ -57,7 +57,7 @@ export default function AppHeaderView(props: PropTypes) {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <SearchIcon />
+                    <SearchIcon className={styles.searchIcon} />
                   </InputAdornment>
                 ),
               }}
@@ -66,11 +66,11 @@ export default function AppHeaderView(props: PropTypes) {
               variant="filled"
             />
           </Box>
-          <Box className={styles.item}>
+          {/* <Box className={styles.item}>
             <Button variant="contained" color="success">
               ورود یا ثبت‌نام
             </Button>{" "}
-          </Box>
+          </Box> */}
         </div>
       </Container>
     </header>

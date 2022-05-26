@@ -5,8 +5,11 @@ import ImgHome from "@/public/assets/images/img-home.svg";
 import Icon1 from "@/public/assets/images/icon-1.svg";
 import Icon2 from "@/public/assets/images/icon-2.svg";
 
-type PropTypes = {};
-export default function HeaderHomeView(props: PropTypes) {
+type PropTypes = {
+  postsCount: number;
+  userCount: number;
+};
+export default function HeaderHomeView({ postsCount, userCount }: PropTypes) {
   return (
     <div className={styles.headerHome}>
       <Container maxWidth="lg" className={styles.box}>
@@ -24,7 +27,7 @@ export default function HeaderHomeView(props: PropTypes) {
           <div className={styles.subContent}>
             <Box className={styles.item}>
               <Typography variant="h5" component="span">
-                +1,000
+                +{postsCount}
               </Typography>
               <Typography variant="h6" component="span">
                 آموزش
@@ -32,7 +35,7 @@ export default function HeaderHomeView(props: PropTypes) {
             </Box>
             <Box className={styles.item}>
               <Typography variant="h5" component="span">
-                +۲۰,000
+                +{userCount}
               </Typography>
               <Typography variant="h6" component="span">
                 کاربر

@@ -1,8 +1,13 @@
 import { Box, Container, Typography } from "@mui/material";
+import Link from "next/link";
 import styles from "./app-footer.module.scss";
 
-type PropTypes = {};
-export default function AppFooterView(props: PropTypes) {
+type PropTypes = {
+  dataCategory: any;
+};
+export default function AppFooterView({ dataCategory }: PropTypes) {
+  const { items } = dataCategory?.result || { items: [] };
+
   return (
     <Container maxWidth="lg">
       <div className={styles.footer}>
@@ -21,10 +26,13 @@ export default function AppFooterView(props: PropTypes) {
               دسته‌بندی‌ها
             </Typography>
             <ul>
-              <li>دسته‌بندی اول</li>
-              <li>دسته‌بندی دوم</li>
-              <li>دسته‌بندی سوم</li>
-              <li>دسته‌بندی چهارم</li>
+              {items.map((item: any, ind: number) => (
+                <li key={ind}>
+                  <Link href={`/category/${item.enTitle}`} passHref>
+                    <Typography component="a">{item.faTitle}</Typography>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </Box>
           <Box className={styles.item}>

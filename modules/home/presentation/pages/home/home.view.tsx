@@ -22,7 +22,7 @@ export default function HomeView({
 
   return (
     <div className={styles.home}>
-      <HeaderHomeComponent />
+      <HeaderHomeComponent {...data.meta} />
       <ViewSummaryPostsComponent data={mostSeenPosts} title={MostSeenIcon} />
       <ViewSummaryPostsComponent data={newestPosts} title={NewstPostIcon} />
       <ViewSummaryPostsComponent

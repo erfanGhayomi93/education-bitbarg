@@ -1,10 +1,11 @@
 import { CAtegory, POst } from "@/modules/home/domain/entities/home";
-import { Box, Button, Chip, Container, Stack } from "@mui/material";
+import { Box, Button, Chip, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import CardPostComponent from "../card-post";
 import styles from "./view-summary-posts.module.scss";
 import DoneIcon from "@mui/icons-material/Done";
+import Link from "next/link";
 
 type PropTypes = {
   title: any;
@@ -30,7 +31,13 @@ export default function viewSummaryPostsView({
       >
         <div className={styles.parentTitle}>
           <Box className={styles.title}>
-            <Image src={title} />
+            {typeof title === "string" ? (
+              <Typography variant="h2" component="h2">
+                {title}
+              </Typography>
+            ) : (
+              <Image src={title} />
+            )}
           </Box>
           {category && (
             <Box className={styles.chips}>
@@ -63,9 +70,11 @@ export default function viewSummaryPostsView({
       {category && (
         <Container>
           <Box className={styles.showMore}>
-            <Button fullWidth variant="outlined" color="inherit">
-              مشاهده بیش‌تر
-            </Button>
+            <Link href="/category/[enTitle]" as={`/category/${activeCategory}`}>
+              <Button fullWidth variant="outlined" color="inherit">
+                مشاهده بیش‌تر
+              </Button>
+            </Link>
           </Box>
         </Container>
       )}
