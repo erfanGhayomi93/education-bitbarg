@@ -22,8 +22,8 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 100;
-	src: url('Woff/IRANSansXFaNum-thin.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-thin.woff2') format('woff2');		
+	src: url('Woff/IRANSansXFaNum-Thin.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Thin.woff2') format('woff2');		
 }
 
 @font-face {
@@ -38,40 +38,40 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 300;
-	src: url('Woff/IRANSansXFaNum-light.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-light.woff2') format('woff2');		 
+	src: url('Woff/IRANSansXFaNum-Light.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Light.woff2') format('woff2');		 
 }
 
 @font-face {
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 500;
-	src: url('Woff/IRANSansXFaNum-medium.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-medium.woff2') format('woff2');		 
+	src: url('Woff/IRANSansXFaNum-Medium.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Medium.woff2') format('woff2');		 
 }
 
 @font-face {
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 600;
-	src: url('Woff/IRANSansXFaNum-demibold.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-demibold.woff2') format('woff2');	 
+	src: url('Woff/IRANSansXFaNum-DemiBold.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-DemiBold.woff2') format('woff2');	 
 }
 
 @font-face {
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 800;
-	src: url('Woff/IRANSansXFaNum-extrabold.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-extrabold.woff2') format('woff2');		 
+	src: url('Woff/IRANSansXFaNum-ExtraBold.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-ExtraBold.woff2') format('woff2');		 
 }
 
 @font-face {
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 900;
-	src: url('Woff/IRANSansXFaNum-black.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-black.woff2') format('woff2');		 
+	src: url('Woff/IRANSansXFaNum-Black.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Black.woff2') format('woff2');		 
 }
 
 @font-face {
@@ -86,8 +86,8 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: normal;
-	src: url('Woff/IRANSansXFaNum-regular.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-regular.woff2') format('woff2');	
+	src: url('Woff/IRANSansXFaNum-Regular.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Regular.woff2') format('woff2');	
 }
 
 
