@@ -78,8 +78,8 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: bold;
-	src: url('Woff/IRANSansXFaNum-bold.woff') format('woff'),   
-	url('Woff2/IRANSansXFaNum-bold.woff2') format('woff2');	 
+	src: url('Woff/IRANSansXFaNum-Bold.woff') format('woff'),   
+	url('Woff2/IRANSansXFaNum-Bold.woff2') format('woff2');	 
 }
 
 @font-face {
