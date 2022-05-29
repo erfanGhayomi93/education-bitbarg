@@ -12,6 +12,8 @@ export default class MyDocument extends Document {
             href="/pwa/icons/icon-192x192.png"
           />
           <link rel="stylesheet" href="/fonts/style.css" />
+          <link rel="stylesheet" href="/fonts/fontiran.css" />
+
           {(this.props as any).emotionStyleTags}
         </Head>
         <body dir="rtl" id="bitbarg">

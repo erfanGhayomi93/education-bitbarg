@@ -22,7 +22,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 100;
-	src: url('./woff/IRANSansXFaNum-thin.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-thin.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-thin.woff2') format('woff2');		
 }
 
@@ -30,7 +30,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 200;
-	src: url('./woff/IRANSansXFaNum-UltraLight.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-UltraLight.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-UltraLight.woff2') format('woff2');	
 }
 
@@ -38,7 +38,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 300;
-	src: url('./woff/IRANSansXFaNum-light.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-light.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-light.woff2') format('woff2');		 
 }
 
@@ -46,7 +46,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 500;
-	src: url('./woff/IRANSansXFaNum-medium.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-medium.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-medium.woff2') format('woff2');		 
 }
 
@@ -54,7 +54,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 600;
-	src: url('./woff/IRANSansXFaNum-demibold.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-demibold.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-demibold.woff2') format('woff2');	 
 }
 
@@ -62,7 +62,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 800;
-	src: url('./woff/IRANSansXFaNum-extrabold.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-extrabold.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-extrabold.woff2') format('woff2');		 
 }
 
@@ -70,7 +70,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: 900;
-	src: url('./woff/IRANSansXFaNum-black.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-black.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-black.woff2') format('woff2');		 
 }
 
@@ -78,7 +78,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: bold;
-	src: url('./woff/IRANSansXFaNum-bold.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-bold.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-bold.woff2') format('woff2');	 
 }
 
@@ -86,7 +86,7 @@ This set of fonts are used in this project under the license: (.....)
 	font-family: IRANSansXFaNum;
 	font-style: normal;
 	font-weight: normal;
-	src: url('./woff/IRANSansXFaNum-regular.woff') format('woff'),   
+	src: url('woff/IRANSansXFaNum-regular.woff') format('woff'),   
 	url('woff2/IRANSansXFaNum-regular.woff2') format('woff2');	
 }
 
