@@ -4,19 +4,24 @@ import VideoDetailsComponent, {
 } from "@/modules/video/presentation/pages/video-details";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 type PropTypes = {
   data: any;
 };
 
 const VideoDetails: NextPage<PropTypes> = (props) => {
-  const { faTitle } = props.data.post;
+  const router = useRouter();
+  const { faTitle } = !router.isFallback ? props.data.post : "";
   return (
     <>
       <Head>
         <title>{faTitle}</title>
       </Head>
-      <VideoDetailsComponent {...props} />
+      <VideoDetailsComponent
+        {...props}
+        {...{ isFallback: router.isFallback }}
+      />
     </>
   );
 };

@@ -10,12 +10,13 @@ type PropTypes = {
 export default function HomeComponent(props: PropTypes) {
   const { categories } = props.data.items;
   const [activeCategory, setActiveCategory] = useState(categories[0].enTitle);
-  const { data } = useGetCategoryDs(activeCategory);
+  const { data, isValidating } = useGetCategoryDs(activeCategory);
 
   return (
     <HomeView
       {...props}
       dataCategoriesItems={data}
+      isValidating={isValidating}
       activeCategory={activeCategory}
       setActiveCategory={setActiveCategory}
     />
@@ -31,5 +32,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       data: mainDate.data,
     },
+    revalidate: 60,
   };
 };

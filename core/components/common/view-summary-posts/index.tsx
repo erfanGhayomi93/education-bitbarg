@@ -7,12 +7,14 @@ type PropTypes = {
   category?: CAtegory[];
   activeCategory?: string | null;
   setActiveCategory?: any;
+  isValidating: boolean;
 };
 export default function ViewSummaryPostsComponent(props: PropTypes) {
-  const { activeCategory, setActiveCategory } = props;
+  const { activeCategory, setActiveCategory, isValidating } = props;
   return (
     <ViewSummaryPostsView
       {...props}
+      isValidating={isValidating}
       activeCategory={activeCategory}
       setActiveCategory={setActiveCategory}
     />

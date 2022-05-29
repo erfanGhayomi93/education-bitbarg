@@ -55,6 +55,7 @@ class Http {
         ...config?.headers,
       },
     };
+    
     if (token && !_config.headers.Authorization) {
       // _config.headers.Authorization = "Bearer " + token;
     }

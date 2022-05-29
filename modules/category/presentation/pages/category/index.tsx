@@ -20,15 +20,15 @@ export default function CategoryComponent(props: PropTypes) {
     let result: { items: any[]; meta: any } = { items: [], meta: {} };
 
     data?.forEach((items: any) => {
-      items.result.items.posts.forEach((post: any) => {
+      items?.result?.items?.posts.forEach((post: any) => {
         result.items.push(post);
       });
     });
 
-    if (data) result.meta = data[data.length - 1].result.meta;
+    if (data) result.meta = data[data.length - 1]?.result?.meta;
 
     return result;
-  }, [data]);
+  }, [data, router.isFallback]);
 
   const allProps = {
     ...props,
@@ -38,6 +38,7 @@ export default function CategoryComponent(props: PropTypes) {
     size,
     setSize,
     isValidating,
+    router,
   };
 
   return <CategoryView {...allProps} />;
@@ -52,12 +53,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       dataServer: dataServer.data,
     },
+    revalidate: 60,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { enTitle: "test" } }],
-    fallback: "blocking",
+    paths: [],
+    fallback: true,
   };
 };

@@ -6,6 +6,7 @@ import CardPostComponent from "../card-post";
 import styles from "./view-summary-posts.module.scss";
 import DoneIcon from "@mui/icons-material/Done";
 import Link from "next/link";
+import SkeletonView from "../card-post/skeleton";
 
 type PropTypes = {
   title: any;
@@ -13,6 +14,7 @@ type PropTypes = {
   category?: CAtegory[];
   setActiveCategory?: any;
   activeCategory?: string | null;
+  isValidating: boolean;
 };
 
 export default function viewSummaryPostsView({
@@ -21,6 +23,7 @@ export default function viewSummaryPostsView({
   category,
   activeCategory,
   setActiveCategory,
+  isValidating,
 }: PropTypes) {
   return (
     <>
@@ -61,10 +64,14 @@ export default function viewSummaryPostsView({
             </Box>
           )}
         </div>
-        <Box className={styles.box}>
-          {data.map((item, ind) => (
-            <CardPostComponent key={ind} data={item} />
-          ))}
+        <Box className={!category ? styles.box : styles.boxCategories}>
+          {!isValidating
+            ? data.map((item, ind) => (
+                <CardPostComponent key={ind} data={item} />
+              ))
+            : Array.from(Array(8).keys()).map((itm, ind) => (
+                <SkeletonView key={ind} />
+              ))}
         </Box>
       </Container>
       {category && (

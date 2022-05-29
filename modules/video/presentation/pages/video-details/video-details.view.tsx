@@ -6,67 +6,74 @@ import ViewSummaryPostsComponent from "@/core/components/common/view-summary-pos
 import SimilarIcon from "@/public/assets/images/similarPosts.svg";
 import Icon3 from "@/public/assets/images/icon-3.svg";
 import Icon2 from "@/public/assets/images/icon-2.svg";
+import VideoDetailsSkeleton from "./video-details.skeleton";
 
 type PropTypes = {
   data: any;
+  isFallback: boolean;
 };
-export default function VideoDetailsView({ data }: PropTypes) {
+export default function VideoDetailsView({ data, isFallback }: PropTypes) {
   return (
     <>
       <Container className={styles.container} maxWidth="lg">
-        <div className={styles.boxVideo}>
-          <Box className={styles.video}>
-            <iframe
-              src={data.post.url}
-              allowFullScreen={true}
-              className={styles.iframe}
-            />
-          </Box>
-          <Box className={styles.details}>
-            <div className={styles.topDetails}>
-              <Chip
-                className={styles.chip}
-                label={data.post.category}
-                variant="filled"
-                color="info"
+        {!isFallback ? (
+          <div className={styles.boxVideo}>
+            <Box className={styles.video}>
+              <iframe
+                src={data.post.url}
+                allowFullScreen={true}
+                className={styles.iframe}
               />
-              <Box display="flex">
-                <Image src={timeLineIcon} />
-                <Typography
-                  className={styles.publishedAt}
-                  variant="body1"
-                  component="span"
-                >
-                  {data.post.publishedAt}
-                </Typography>
-              </Box>
-            </div>
-            <Typography className={styles.title} variant="h3" component="h3">
-              {data.post.faTitle}
-            </Typography>
-            <Typography className={styles.text} variant="h6" component="p">
-              {data.post.description}
-            </Typography>
-            <Box className={styles.tags}>
-              {data.post.tags.map((item: any) => (
-                <Typography variant="body1" component="span" key={item.id}>
-                  {item.slug}
-                </Typography>
-              ))}
             </Box>
-          </Box>
-          <Box className={styles.icon1}>
-            <Image src={Icon3} />
-          </Box>
-          <Box className={styles.icon2}>
-            <Image src={Icon2} />
-          </Box>
-        </div>
+            <Box className={styles.details}>
+              <div className={styles.topDetails}>
+                <Chip
+                  className={styles.chip}
+                  label={data.post.category}
+                  variant="filled"
+                  color="info"
+                />
+                <Box display="flex">
+                  <Image src={timeLineIcon} />
+                  <Typography
+                    className={styles.publishedAt}
+                    variant="body1"
+                    component="span"
+                  >
+                    {data.post.publishedAt}
+                  </Typography>
+                </Box>
+              </div>
+              <Typography className={styles.title} variant="h3" component="h3">
+                {data.post.faTitle}
+              </Typography>
+              <Typography className={styles.text} variant="h6" component="p">
+                {data.post.description}
+              </Typography>
+              <Box className={styles.tags}>
+                {data.post.tags.map((item: any) => (
+                  <Typography variant="body1" component="span" key={item.id}>
+                    {item.slug}
+                  </Typography>
+                ))}
+              </Box>
+            </Box>
+            <Box className={styles.icon1}>
+              <Image src={Icon3} />
+            </Box>
+            <Box className={styles.icon2}>
+              <Image src={Icon2} />
+            </Box>
+          </div>
+        ) : (
+          <VideoDetailsSkeleton />
+        )}
       </Container>
       <div className={styles.boxViewSummary}>
         <ViewSummaryPostsComponent
-          data={data.relatedPosts}
+          data={data?.relatedPosts}
           title={SimilarIcon}
+          isValidating={isFallback}
         />
       </div>
     </>

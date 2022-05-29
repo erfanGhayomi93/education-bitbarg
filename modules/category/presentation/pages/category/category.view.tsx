@@ -1,4 +1,6 @@
 import CardPostComponent from "@/core/components/common/card-post";
+import SkeletonView from "@/core/components/common/card-post/skeleton";
+import { perPage } from "@/modules/category/data/datasources/category.datasource";
 import { POst } from "@/modules/home/domain/entities/home";
 import { Box, Button, Container } from "@mui/material";
 import styles from "./category.module.scss";
@@ -6,7 +8,7 @@ import styles from "./category.module.scss";
 type PropTypes = any;
 
 export default function CategoryView(props: PropTypes) {
-  const { size, setSize, data } = props;
+  const { size, setSize, data, isValidating, router } = props;
 
   const { items } = props?.data || { items: [] };
   const lastPage = data?.meta?.paginateHelper?.lastPage;
@@ -14,9 +16,14 @@ export default function CategoryView(props: PropTypes) {
   return (
     <Container maxWidth="lg" className={styles.category}>
       <Box className={styles.box}>
-        {items.map((item: POst, ind: number) => (
-          <CardPostComponent key={ind} data={item} />
-        ))}
+        {!router.isFallback &&
+          items.map((item: POst, ind: number) => (
+            <CardPostComponent key={ind} data={item} />
+          ))}
+        {(router.isFallback || isValidating) &&
+          Array.from(Array(perPage).keys()).map((itm, ind) => (
+            <SkeletonView key={ind} />
+          ))}
       </Box>
 
       {size !== lastPage && (

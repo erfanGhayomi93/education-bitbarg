@@ -8,6 +8,7 @@ import CategoriesIcon from "@/public/assets/images/categories.svg";
 type PropTypes = {
   data: any;
   activeCategory?: string;
+  isValidating: boolean;
   setActiveCategory?: any;
   dataCategoriesItems?: any;
 };
@@ -15,6 +16,7 @@ type PropTypes = {
 export default function HomeView({
   data,
   activeCategory,
+  isValidating,
   setActiveCategory,
   dataCategoriesItems,
 }: PropTypes) {
@@ -23,14 +25,23 @@ export default function HomeView({
   return (
     <div className={styles.home}>
       <HeaderHomeComponent {...data.meta} />
-      <ViewSummaryPostsComponent data={mostSeenPosts} title={MostSeenIcon} />
-      <ViewSummaryPostsComponent data={newestPosts} title={NewstPostIcon} />
+      <ViewSummaryPostsComponent
+        data={mostSeenPosts}
+        title={MostSeenIcon}
+        isValidating={false}
+      />
+      <ViewSummaryPostsComponent
+        data={newestPosts}
+        title={NewstPostIcon}
+        isValidating={false}
+      />
       <ViewSummaryPostsComponent
         data={dataCategoriesItems?.result?.items.posts || categoryPosts}
         title={CategoriesIcon}
         category={categories}
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
+        isValidating={isValidating}
       />
     </div>
   );

@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 type PropTypes = {
   data: any;
+  isFallback: boolean;
 };
 export default function VideoDetailsComponent(props: PropTypes) {
   return <VideoDetailsView {...props} />;
@@ -18,12 +19,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       data: detailsData.data,
     },
+    revalidate: 60,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { id: "tire-builder" } }],
-    fallback: "blocking",
+    fallback: true,
   };
 };
