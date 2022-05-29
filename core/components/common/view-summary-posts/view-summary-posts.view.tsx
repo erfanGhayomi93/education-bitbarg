@@ -1,7 +1,20 @@
 import { CAtegory, POst } from "@/modules/home/domain/entities/home";
-import { Box, Button, Chip, Container, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  SelectChangeEvent,
+  Stack,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import CardPostComponent from "../card-post";
 import styles from "./view-summary-posts.module.scss";
 import DoneIcon from "@mui/icons-material/Done";
@@ -25,6 +38,10 @@ export default function viewSummaryPostsView({
   setActiveCategory,
   isValidating,
 }: PropTypes) {
+  const handleChange = (event: SelectChangeEvent<typeof activeCategory>) => {
+    setActiveCategory(event.target.value);
+  };
+
   return (
     <>
       <Container
@@ -43,27 +60,53 @@ export default function viewSummaryPostsView({
             )}
           </Box>
           {category && (
-            <Box className={styles.chips}>
-              <Stack direction="row" spacing={1}>
-                {category.map((item: CAtegory, ind: number) => (
-                  <Chip
-                    key={ind}
-                    label={item.faTitle}
-                    className={styles.chip}
-                    variant={
-                      activeCategory === item.enTitle ? "filled" : "outlined"
-                    }
-                    clickable={false}
-                    color="info"
-                    deleteIcon={<DoneIcon />}
-                    onDelete={undefined}
-                    onClick={() => setActiveCategory(item.enTitle)}
-                  />
-                ))}
-              </Stack>
-            </Box>
+            <>
+              <FormControl className={styles.categoriesDesktop}>
+                <InputLabel htmlFor="chips">دسته بندی ها</InputLabel>
+                <Select
+                  fullWidth
+                  value={activeCategory}
+                  onChange={handleChange}
+                  input={<OutlinedInput label="دسته بندی ها" id="chips" />}
+                >
+                  {category.map((item: CAtegory) => (
+                    <MenuItem
+                      defaultValue={
+                        activeCategory === item.enTitle ? item.enTitle : ""
+                      }
+                      value={item.enTitle}
+                      key={item.id}
+                      className={styles.option}
+                    >
+                      {item.faTitle}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+
+              <div className={styles.chipsMobile}>
+                <Stack direction="row" spacing={1}>
+                  {category.map((item: CAtegory, ind: number) => (
+                    <Chip
+                      key={ind}
+                      label={item.faTitle}
+                      className={styles.chip}
+                      variant={
+                        activeCategory === item.enTitle ? "filled" : "outlined"
+                      }
+                      clickable={false}
+                      color="info"
+                      deleteIcon={<DoneIcon />}
+                      onDelete={undefined}
+                      onClick={() => setActiveCategory(item.enTitle)}
+                    />
+                  ))}
+                </Stack>
+              </div>
+            </>
           )}
         </div>
+
         <Box className={!category ? styles.box : styles.boxCategories}>
           {!isValidating
             ? data.map((item, ind) => (

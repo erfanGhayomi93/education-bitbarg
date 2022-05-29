@@ -451,17 +451,17 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
           },
         },
       },
-      MuiOutlinedInput: {
-        styleOverrides: {
-          root: {
-            // backgroundColor: palette.background?.default,
-          },
-          input: {
-            boxSizing: "border-box",
-            // height: 48,
-          },
-        },
-      },
+      // MuiOutlinedInput: {
+      //   styleOverrides: {
+      //     root: {
+      //       // backgroundColor: palette.background?.default,
+      //     },
+      //     input: {
+      //       boxSizing: "border-box",
+      //       // height: 48,
+      //     },
+      //   },
+      // },
       MuiToggleButtonGroup: {
         styleOverrides: {
           root: {
