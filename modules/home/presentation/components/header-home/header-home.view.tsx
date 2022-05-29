@@ -15,10 +15,11 @@ export default function HeaderHomeView({ postsCount, userCount }: PropTypes) {
       <Container maxWidth="lg" className={styles.box}>
         <Box className={styles.icon1}>
           <Image src={Icon1} />
+          deweffsfds
         </Box>
         <div className={styles.content}>
           <Typography variant="h1" component="h1">
-            کریپتو کارنسی را با بیت‌برگ یاد بگیرید..!
+            1 کریپتو کارنسی را با بیت‌برگ یاد بگیرید..!
           </Typography>
           <Typography variant="h6" component="h6">
             مجموعه‌ای از آموزش‌های ارز دیجیتال برای یادگیری ساخت کیف پول، ترید،
