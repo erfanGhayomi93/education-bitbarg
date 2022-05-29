@@ -15,7 +15,6 @@ export default function HeaderHomeView({ postsCount, userCount }: PropTypes) {
       <Container maxWidth="lg" className={styles.box}>
         <Box className={styles.icon1}>
           <Image src={Icon1} />
-          deweffsfds
         </Box>
         <div className={styles.content}>
           <Typography variant="h1" component="h1">
