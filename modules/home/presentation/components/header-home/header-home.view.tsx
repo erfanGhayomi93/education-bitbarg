@@ -18,7 +18,7 @@ export default function HeaderHomeView({ postsCount, userCount }: PropTypes) {
         </Box>
         <div className={styles.content}>
           <Typography variant="h1" component="h1">
-            1 کریپتو کارنسی را با بیت‌برگ یاد بگیرید..!
+            کریپتو کارنسی را با بیت‌برگ یاد بگیرید..!
           </Typography>
           <Typography variant="h6" component="h6">
             مجموعه‌ای از آموزش‌های ارز دیجیتال برای یادگیری ساخت کیف پول، ترید،
