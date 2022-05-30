@@ -1,10 +1,10 @@
-import { getLocalStorageToken } from "@/core/helpers";
+import useToken from "@/core/hooks/useToken";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
-    token: getLocalStorageToken() || "",
+    token: useToken() || "",
     user: undefined,
     deviceId:
       typeof window !== "undefined" ? localStorage.getItem("deviceId") : "",
