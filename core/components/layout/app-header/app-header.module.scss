@@ -1,70 +1,51 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  //   background-color: lightgray;
-  margin: 35px 0;
-  .menu {
-    padding: 0 55px;
-    ul {
-      list-style: none;
+.appBar {
+  color: var(--text-primary) !important;
+  z-index: 1000;
+  .endLogo {
+    width: 80px;
+    margin-inline-start: auto;
+    display: flex;
+  }
+  .desktopToolbar {
+    .navbar {
       display: flex;
-      li {
-        padding: 0 36px;
-        a {
-          font-weight: 600;
-          white-space: nowrap;
-        }
+      align-items: center;
+      color: var(--text-secondary);
+    }
+    .endSection {
+      display: flex;
+      margin-inline-start: auto;
+      align-items: center;
+      .divider {
+        height: 24px;
+        margin: 0 8px;
       }
-    }
-  }
-  .menuResponsive {
-    display: none;
-  }
-  .textField {
-    flex-grow: 1;
-    margin-left: 90px;
-    .searchIcon {
-      width: 21px;
-      height: 21px;
-    }
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .header {
-    margin: 25px 0;
-    flex-wrap: wrap;
-    .menu {
-      li {
-        padding: 0 8px !important;
-      }
-    }
-    .item {
-      padding: 0;
-      margin: 10px 14px;
-      &:nth-child(3) {
-        order: 4;
+      .logoContainer {
+        display: flex;
       }
     }
   }
 }
-
-@media only screen and (max-width: 600px) {
-  .header {
-    margin-top: 0;
-    .menu {
-      display: none;
+.announcementHolder {
+  opacity: 0;
+}
+.announcement {
+  background-color: var(--primary-main);
+  padding: 8px 0;
+  .container {
+    display: flex;
+    align-items: center;
+    .link {
+      margin: 0 12px;
+      // text-decoration: underline;
+      display: flex;
+      align-items: center;
     }
-    .item {
-      padding: 12px 0;
-      margin: 0 6px;
-      &:nth-child(3) {
-        width: 100%;
-      }
-      .menuResponsive {
-        display: block;
-      }
+    .close {
+      margin-inline-start: auto;
     }
+  }
+  * {
+    color: var(--primary-contrastText);
   }
 }

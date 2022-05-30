@@ -1,8 +1,9 @@
 import CardPostComponent from "@/core/components/common/card-post";
 import SkeletonView from "@/core/components/common/card-post/skeleton";
+import AppHeaderComponent from "@/core/components/layout/app-header";
 import { perPage } from "@/modules/category/data/datasources/category.datasource";
 import { POst } from "@/modules/home/domain/entities/home";
-import { Box, Button, Container } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import styles from "./category.module.scss";
 
 type PropTypes = any;
@@ -15,6 +16,19 @@ export default function CategoryView(props: PropTypes) {
 
   return (
     <Container maxWidth="lg" className={styles.category}>
+      <AppHeaderComponent
+        className={styles.header}
+        backHref="/"
+        absoluteHref
+        toolbarContent={
+          <>
+            <Typography className={styles.headerTitle}>
+              {items[0]?.faTitle}
+            </Typography>
+          </>
+        }
+        bgcolor="background.paper"
+      />
       <Box className={styles.box}>
         {!router.isFallback &&
           items.map((item: POst, ind: number) => (

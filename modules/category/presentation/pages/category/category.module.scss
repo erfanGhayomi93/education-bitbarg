@@ -2,6 +2,21 @@
   .box {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 100px;
+  }
+  .header {
+    border-bottom: 1px solid var(--divider);
+    .icon {
+      color: var(--primary-main);
+    }
+    .headerTitle {
+      flex: 1 1;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      min-width: 0;
+      text-overflow: ellipsis;
+    }
   }
 }
 
@@ -10,5 +25,11 @@
     .box {
       justify-content: space-around;
     }
+  }
+}
+
+@media (min-width: 900px) {
+  .header {
+    border: none !important;
   }
 }

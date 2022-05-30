@@ -1,0 +1,93 @@
+.authButton {
+  min-width: 200px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  & > * {
+    margin: 0 8px !important;
+  }
+}
+.paper {
+  padding-bottom: 70px;
+  .sidebar {
+    width: 100vw;
+    .downloadApp {
+      // margin: 0 12px;
+      border-radius: 2.3vw;
+      overflow: hidden;
+    }
+    .logoContainer {
+      padding-bottom: 45px;
+      display: flex;
+      justify-content: center;
+    }
+    .miniProfile {
+      display: flex;
+      padding: 0 12px 12px;
+      .avatar {
+        margin-inline-end: 8px;
+      }
+    }
+    .sidebarList {
+      padding: 0 !important;
+      margin-top: -16px !important;
+      .divider {
+        display: none;
+        margin: 20px 12px;
+      }
+      .listItem {
+        border-bottom: 1px solid var(--divider);
+        .listItemButton {
+          transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+          height: 46px;
+          padding: 4px 12px;
+          .listItemIcon {
+            min-width: 32px;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .paper {
+    border-radius: 8px 0 0 8px;
+    .sidebar {
+      width: 360px;
+      .downloadApp {
+        border-radius: 8px;
+      }
+      .sidebarList {
+        .divider {
+          display: block;
+        }
+        .listItem {
+          border-bottom: none;
+          padding: 2px 0;
+          .listItemButton {
+            padding: 4px 24px;
+          }
+          &:hover,
+          &.selected {
+            .listItemButton {
+              border-radius: 4px;
+              padding: 4px 14px;
+              margin: 0 24px;
+            }
+          }
+          &.selected .listItemButton {
+            color: var(--primary-main);
+            background-color: var(--primary-lighter);
+          }
+        }
+      }
+      .contentGap {
+        padding: 16px 32px 0;
+      }
+    }
+  }
+}

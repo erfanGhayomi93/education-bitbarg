@@ -7,6 +7,7 @@ import SimilarIcon from "@/public/assets/images/similarPosts.svg";
 import Icon3 from "@/public/assets/images/icon-3.svg";
 import Icon2 from "@/public/assets/images/icon-2.svg";
 import VideoDetailsSkeleton from "./video-details.skeleton";
+import AppHeaderComponent from "@/core/components/layout/app-header";
 
 type PropTypes = {
   data: any;
@@ -15,6 +16,19 @@ type PropTypes = {
 export default function VideoDetailsView({ data, isFallback }: PropTypes) {
   return (
     <>
+      <AppHeaderComponent
+        className={styles.header}
+        backHref="/"
+        absoluteHref
+        toolbarContent={
+          <>
+            <Typography className={styles.headerTitle}>
+              {data?.post?.faTitle}
+            </Typography>
+          </>
+        }
+        bgcolor="background.paper"
+      />
       <Container className={styles.container} maxWidth="lg">
         {!isFallback ? (
           <div className={styles.boxVideo}>
