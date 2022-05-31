@@ -1,0 +1,65 @@
+.boxControl {
+  padding: 12px 46px 12px 60px;
+  position: relative;
+  //   margin-inline-start: auto;
+  flex-grow: 1;
+  .searchIcon {
+    width: 21px;
+    height: 21px;
+  }
+  .formControl {
+    width: 100%;
+  }
+
+  .popup {
+    position: absolute;
+    width: 476px;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px 16px 16px;
+    padding: 16px 24px;
+    z-index: 1000;
+    background-color: white;
+    top: 77.13px;
+    .title {
+      color: var(---text-main-mute);
+      font-weight: 600;
+    }
+    .oldSearches {
+      margin-top: 12px;
+      margin-bottom: 52px;
+    }
+    .removeOldSearches {
+      color: var(---success-main);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .chip {
+      margin: 0 8px;
+      font-weight: bold;
+      font-size: var(--font-body1);
+    }
+    .box {
+      display: flex;
+      margin: 10px 0;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .content {
+      margin-right: 12px;
+    }
+    .description {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .image {
+      width: 52px;
+      height: 52px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .boxControl {
+    margin: 12px 0 12px 8px;
+  }
+}

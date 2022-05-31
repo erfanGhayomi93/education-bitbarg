@@ -23,6 +23,7 @@ import { UserInterface } from "@/modules/auth/domain/entities/user";
 import { ThemeProvider } from "@mui/material/styles";
 import Link from "next/link";
 import { ArrowForwardIos } from "@mui/icons-material";
+import SearchInputComponent from "@/core/components/layout/search-input";
 
 type PropTypes = {
   children?: any;
@@ -157,6 +158,9 @@ export default function AppHeaderView(props: PropTypes) {
                 پورتفوی
               </Button>
             </div>
+
+            <SearchInputComponent />
+
             <div className={styles.endSection}>
               {/* {typeof window === "undefined" || userLoading ? ( */}
               {loading ? (

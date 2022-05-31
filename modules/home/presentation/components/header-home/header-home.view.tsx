@@ -17,7 +17,7 @@ export default function HeaderHomeView({ postsCount, userCount }: PropTypes) {
           <Image src={Icon1} />
         </Box>
         <div className={styles.content}>
-          <Typography variant="h1" component="h1">
+          <Typography variant="h1" component="h1" color="primary">
             کریپتو کارنسی را با بیت‌برگ یاد بگیرید..!
           </Typography>
           <Typography variant="h6" component="h6">

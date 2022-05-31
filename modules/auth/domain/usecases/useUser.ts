@@ -8,6 +8,10 @@ export function getLocalStorageUser(name:string) {
   } catch (err) {}
 }
 
+export function removeItemLocalStorage (item : string) : void {
+  localStorage.removeItem(item)
+}
+
 export default function useUser() {
   const [user, setUser] = useState();
   useEffect(() => {
