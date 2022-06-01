@@ -3,13 +3,14 @@ import useSWRInfinite from "swr/infinite";
 
 export const perPage = 4
 
-export const searchDatasource = (key : any) => {
-    return http.get(`/search?key=${encodeURI(key)}`)
+export const searchDatasource = (type : any , key : any) => {
+    console.log("inside",`/search?${type}=${encodeURI(key)}`)
+    return http.get(`/search?${type}=${encodeURI(key)}`)
 }
 
-export const useSearchDs = (key: any , fallback : any) => {
+export const useSearchDs = (type : any, key: any , fallback : any) => {
     return useSWRInfinite(
-       (index) => key ? `/search/?key=${encodeURI(key)}&perPage=${perPage}&page=${index + 1}` : null,
+       (index) => key ? `/search?${type}=${encodeURI(key)}&perPage=${perPage}&page=${index + 1}` : null,
        (url: string) => http.get(url).then((res: any) => res),
        {
            revalidateOnFocus : false ,

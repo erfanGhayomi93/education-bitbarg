@@ -14,6 +14,7 @@ type PropTypes = {
 export default function SearchComponent(props: PropTypes) {
   const router = useRouter();
   const { data, error, mutate, size, setSize, isValidating } = useSearch(
+    router?.query?.type,
     router?.query?.key,
     props.dataServer
   );
@@ -51,8 +52,11 @@ export default function SearchComponent(props: PropTypes) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dataServer = await getSearchData(context?.params?.key);
-  console.log("dataServer", dataServer);
+  const dataServer = await getSearchData(
+    context?.params?.type,
+    context?.params?.key
+  );
+  console.log("context", context);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;
 

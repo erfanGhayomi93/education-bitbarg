@@ -8,6 +8,7 @@ import Icon3 from "@/public/assets/images/icon-3.svg";
 import Icon2 from "@/public/assets/images/icon-2.svg";
 import VideoDetailsSkeleton from "./video-details.skeleton";
 import AppHeaderComponent from "@/core/components/layout/app-header";
+import Link from "next/link";
 
 type PropTypes = {
   data: any;
@@ -66,9 +67,15 @@ export default function VideoDetailsView({ data, isFallback }: PropTypes) {
               </Typography>
               <Box className={styles.tags}>
                 {data.post.tags.map((item: any) => (
-                  <Typography variant="body1" component="span" key={item.id}>
-                    {item.slug}
-                  </Typography>
+                  <Link
+                    href="/search/[tag]/[key]"
+                    as={`/search/tag/${item.slug}`}
+                    key={item.id}
+                  >
+                    <Typography variant="body1" component="span">
+                      {item.slug}
+                    </Typography>
+                  </Link>
                 ))}
               </Box>
             </Box>

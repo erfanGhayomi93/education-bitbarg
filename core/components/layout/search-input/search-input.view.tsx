@@ -101,7 +101,10 @@ export default function SearchInputView({
           ))}
           {items.length > 4 && (
             <div className={styles.more}>
-              <Link href="/search/[key]" as={`/search/${searchText}`}>
+              <Link
+                href="/search/[type]/[key]"
+                as={`/search/key/${searchText}`}
+              >
                 <Button
                   fullWidth
                   color="inherit"
@@ -142,8 +145,8 @@ export default function SearchInputView({
           endAdornment={
             <InputAdornment position="end">
               <Link
-                href="/search/[key]"
-                as={`/search/${searchText ? searchText : null}`}
+                href="/search/[type]/[key]"
+                as={`/search/key/${searchText ? searchText : null}`}
                 passHref
               >
                 <IconButton

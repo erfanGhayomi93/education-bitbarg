@@ -52,7 +52,7 @@ export default function searchView(props: PropTypes) {
           ))}
       </Box>
 
-      {(!items || items.length === 0) && (
+      {!router.isFallback && (!items || items.length === 0) && (
         <Typography variant="h5"> موردی یافت نشد. </Typography>
       )}
 
