@@ -34,7 +34,7 @@
       cursor: pointer;
     }
     .chip {
-      margin: 0 8px;
+      margin: 5px 8px;
       font-weight: bold;
       font-size: var(--font-body1);
     }
@@ -50,6 +50,10 @@
     .description {
       margin-bottom: 8px;
       font-weight: 600;
+      width: 375px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
     .image {
       width: 52px;

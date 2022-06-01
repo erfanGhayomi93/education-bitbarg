@@ -9,9 +9,9 @@ export const getCategoriesListDs = () => {
 }
 
 export const getSearchKeyDs = (key : string) => {
-   return useFetch(`/search?key=${key}` ,{
+   return useFetch(`/search?key=${(encodeURI(key))}` ,{
     revalidateOnMount : false ,
     revalidateOnFocus : false ,
-    isPaused : () => !key ? true : false
+    isPaused : () => (key && key.length > 2) ? false : true
    })
 }

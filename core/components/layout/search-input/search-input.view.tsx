@@ -3,7 +3,6 @@ import {
   removeItemLocalStorage,
 } from "@/modules/auth/domain/usecases/useUser";
 import { POst } from "@/modules/home/domain/entities/home";
-import { PopperUnstyled } from "@mui/base";
 import {
   Box,
   Button,
@@ -15,9 +14,8 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef } from "react";
 import { SearchIcon } from "../../common/custom-icon";
 import styles from "./search-input.module.scss";
 
@@ -25,25 +23,23 @@ type PropTypes = {
   inputValue: string;
   searchText: string;
   setInputValue: (value: string) => void;
-  setSearchText: (value: string) => void;
   setOpen: (value: boolean) => void;
   open: boolean;
-  handleClickSearch: (event: React.MouseEvent<HTMLElement>) => void;
   searchData: any;
+  handleClickAsSetOldSearches: () => void;
 };
 export default function SearchInputView({
   inputValue,
   searchText,
   setInputValue,
-  setSearchText,
   setOpen,
   open,
-  handleClickSearch,
   searchData,
+  handleClickAsSetOldSearches,
 }: PropTypes) {
-  const clickSearch = useRef<any>();
+  const refInput = useRef<any>();
 
-  const uiOldSearches = () => {
+  const uiOldSearches = useCallback(() => {
     const oldSearches = getLocalStorageUser("oldSearches");
     if (oldSearches && !searchText) {
       return (
@@ -60,6 +56,7 @@ export default function SearchInputView({
                 color="info"
                 clickable
                 className={styles.chip}
+                onClick={() => setInputValue(item)}
               />
             ))}
           </div>
@@ -77,14 +74,15 @@ export default function SearchInputView({
       );
     }
     return null;
-  };
+  }, [searchText]);
 
   const resultSearch = useCallback(() => {
     const items = searchData?.result?.items;
+
     if (items?.length) {
       return (
-        <Box className={styles.popup}>
-          {items.map((item: POst) => (
+        <Box className={styles.popup} onClick={handleClickAsSetOldSearches}>
+          {items.slice(0, 4).map((item: POst) => (
             <Link
               key={item.id}
               href="/video/[id]"
@@ -101,11 +99,18 @@ export default function SearchInputView({
               </div>
             </Link>
           ))}
-          {items.length > 1 && (
+          {items.length > 4 && (
             <div className={styles.more}>
-              <Button fullWidth color="inherit" variant="outlined">
-                همه نتایج
-              </Button>
+              <Link href="/search/[key]" as={`/search/${searchText}`}>
+                <Button
+                  fullWidth
+                  color="inherit"
+                  variant="outlined"
+                  // component={Link}
+                >
+                  همه نتایج
+                </Button>
+              </Link>
             </div>
           )}
         </Box>
@@ -122,30 +127,33 @@ export default function SearchInputView({
           id="search-input"
           value={inputValue}
           className={styles.inputText}
-          onKeyDown={(e: any) => {
-            if (e.keyCode === 13) {
-              clickSearch.current.click();
-            }
-          }}
-          onChange={(e: any) => {
-            setInputValue(e.target.value);
-          }}
+          onChange={(e: any) => setInputValue(e.target.value)}
           onFocus={() => setOpen(true)}
           onBlur={() => {
             setTimeout(() => {
               setOpen(false);
             }, 500);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              refInput.current.click();
+            }
+          }}
           endAdornment={
             <InputAdornment position="end">
-              <IconButton
-                ref={clickSearch}
-                aria-label="toggle password visibility"
-                onClick={handleClickSearch}
-                edge="end"
+              <Link
+                href="/search/[key]"
+                as={`/search/${searchText ? searchText : null}`}
+                passHref
               >
-                <SearchIcon className={styles.searchIcon} />
-              </IconButton>
+                <IconButton
+                  ref={refInput}
+                  aria-label="toggle password visibility"
+                  edge="end"
+                >
+                  <SearchIcon className={styles.searchIcon} />
+                </IconButton>
+              </Link>
             </InputAdornment>
           }
           label="جستجو در آموزش‌ها..."
@@ -154,7 +162,7 @@ export default function SearchInputView({
         />
       </FormControl>
       {open && uiOldSearches()}
-      {open && resultSearch()}
+      {resultSearch()}
     </div>
   );
 }

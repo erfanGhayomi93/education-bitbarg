@@ -1,26 +1,32 @@
 import {
-  getCategoryData,
-  useCategoriesLoadMore,
-} from "@/modules/category/domain/usecases/getCategoryData";
+  getSearchData,
+  useSearch,
+} from "@/modules/search/domain/usecases/getSearchData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
-import CategoryView from "./category.view";
+import { useEffect, useMemo } from "react";
+import SearchView from "./search.view";
 
 type PropTypes = {
   dataServer: any;
 };
 
-export default function CategoryComponent(props: PropTypes) {
+export default function SearchComponent(props: PropTypes) {
   const router = useRouter();
-  const { data, error, mutate, size, setSize, isValidating } =
-    useCategoriesLoadMore(router?.query?.enTitle, props.dataServer);
+  const { data, error, mutate, size, setSize, isValidating } = useSearch(
+    router?.query?.key,
+    props.dataServer
+  );
+
+  useEffect(() => {
+    console.log("router", router);
+  }, [router]);
 
   const dataFinal = useMemo(() => {
     let result: { items: any[]; meta: any } = { items: [], meta: {} };
 
     data?.forEach((items: any) => {
-      items?.result?.items?.posts.forEach((post: any) => {
+      items?.result?.items?.forEach((post: any) => {
         result.items.push(post);
       });
     });
@@ -41,17 +47,19 @@ export default function CategoryComponent(props: PropTypes) {
     router,
   };
 
-  return <CategoryView {...allProps} />;
+  return <SearchView {...allProps} />;
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dataServer = await getCategoryData(context?.params?.enTitle);
+  const dataServer = await getSearchData(context?.params?.key);
+  console.log("dataServer", dataServer);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;
 
   return {
     props: {
       dataServer: dataServer.data,
+      // dataServer: [],
     },
     revalidate: 60,
   };

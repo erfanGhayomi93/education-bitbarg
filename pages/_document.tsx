@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
             href="/pwa/icons/icon-192x192.png"
           />
           <link rel="stylesheet" href="/fonts/style.css" />
+          <meta charSet="UTF-8" />
 
           {(this.props as any).emotionStyleTags}
         </Head>
