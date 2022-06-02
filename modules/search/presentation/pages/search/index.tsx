@@ -4,7 +4,7 @@ import {
 } from "@/modules/search/domain/usecases/getSearchData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import SearchView from "./search.view";
 
 type PropTypes = {
@@ -14,14 +14,9 @@ type PropTypes = {
 export default function SearchComponent(props: PropTypes) {
   const router = useRouter();
   const { data, error, mutate, size, setSize, isValidating } = useSearch(
-    router?.query?.type,
     router?.query?.key,
     props.dataServer
   );
-
-  useEffect(() => {
-    console.log("router", router);
-  }, [router]);
 
   const dataFinal = useMemo(() => {
     let result: { items: any[]; meta: any } = { items: [], meta: {} };
@@ -52,10 +47,7 @@ export default function SearchComponent(props: PropTypes) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dataServer = await getSearchData(
-    context?.params?.type,
-    context?.params?.key
-  );
+  const dataServer = await getSearchData(context?.params?.key);
   console.log("context", context);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;

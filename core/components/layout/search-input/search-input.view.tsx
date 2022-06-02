@@ -101,16 +101,8 @@ export default function SearchInputView({
           ))}
           {items.length > 4 && (
             <div className={styles.more}>
-              <Link
-                href="/search/[type]/[key]"
-                as={`/search/key/${searchText}`}
-              >
-                <Button
-                  fullWidth
-                  color="inherit"
-                  variant="outlined"
-                  // component={Link}
-                >
+              <Link href="/search/[tag]" as={`/search/${searchText}`}>
+                <Button fullWidth color="inherit" variant="outlined">
                   همه نتایج
                 </Button>
               </Link>

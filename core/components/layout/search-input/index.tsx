@@ -1,7 +1,7 @@
 import useDebouncedState from "@/core/hooks/useDebouncedState";
 import { getSearchKey } from "@/modules/app/data/usecases";
 import { getLocalStorageUser } from "@/modules/auth/domain/usecases/useUser";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SearchInputView from "./search-input.view";
 
 type PropTypes = {};
@@ -27,10 +27,6 @@ export default function SearchInputComponent(props: PropTypes) {
       localStorage.setItem("oldSearches", JSON.stringify(NewSearches));
     } catch {}
   };
-
-  useEffect(() => {
-    console.log("searchData", searchData);
-  }, [searchData]);
 
   return (
     <SearchInputView
