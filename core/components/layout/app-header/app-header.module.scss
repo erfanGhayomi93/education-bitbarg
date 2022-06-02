@@ -49,3 +49,9 @@
     color: var(--primary-contrastText);
   }
 }
+
+@media (max-width: 899px) {
+  .appBar {
+    min-height: 130px;
+  }
+}

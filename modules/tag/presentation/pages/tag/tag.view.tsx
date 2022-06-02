@@ -1,21 +1,21 @@
 import CardPostComponent from "@/core/components/common/card-post";
 import SkeletonView from "@/core/components/common/card-post/skeleton";
 import AppHeaderComponent from "@/core/components/layout/app-header";
-import { perPage } from "@/modules/category/data/datasources/category.datasource";
+import { perPage } from "@/modules/tag/data/datasources/tag.datasource";
 import { POst } from "@/modules/home/domain/entities/home";
 import { Box, Button, Container, Typography } from "@mui/material";
-import styles from "./category.module.scss";
+import styles from "./tag.module.scss";
 
 type PropTypes = any;
 
-export default function CategoryView(props: PropTypes) {
+export default function TagView(props: PropTypes) {
   const { size, setSize, data, isValidating, router } = props;
 
   const { items } = props?.data || { items: [] };
   const lastPage = data?.meta?.paginateHelper?.lastPage;
 
   return (
-    <Container maxWidth="lg" className={styles.category}>
+    <Container maxWidth="lg" className={styles.tag}>
       <AppHeaderComponent
         className={styles.header}
         backHref="/"
@@ -23,7 +23,7 @@ export default function CategoryView(props: PropTypes) {
         toolbarContent={
           <>
             <Typography className={styles.headerTitle}>
-              {items[0]?.faTitle}
+              {router?.query?.tag}
             </Typography>
           </>
         }
@@ -35,13 +35,11 @@ export default function CategoryView(props: PropTypes) {
           variant="h1"
           component="span"
         >
-          دسته‌بندی
+          نتایج جستجو برای
         </Typography>
-        {!router.isFallback && (
-          <Typography variant="h1" component="span">
-            {items[0]?.category}
-          </Typography>
-        )}
+        <Typography variant="h1" component="span">
+          {router?.query?.tag}
+        </Typography>
       </Box>
       <Box className={styles.box}>
         {!router.isFallback &&
@@ -53,6 +51,10 @@ export default function CategoryView(props: PropTypes) {
             <SkeletonView key={ind} />
           ))}
       </Box>
+
+      {!router.isFallback && (!items || items.length === 0) && (
+        <Typography variant="h5"> موردی یافت نشد. </Typography>
+      )}
 
       {size !== lastPage && (
         <Box className={styles.showMore}>

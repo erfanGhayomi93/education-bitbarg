@@ -9,6 +9,7 @@ import {
   Divider,
   Skeleton,
   Typography,
+  Box,
 } from "@mui/material";
 import AppSideBar from "@/core/components/layout/app-side-bar";
 import {
@@ -117,13 +118,16 @@ export default function AppHeaderView(props: PropTypes) {
       >
         <Container>
           <Toolbar className="desktop-down" disableGutters>
-            {backButton()}
-            {!!title && (
-              <Typography component="h1" className={styles.headerTitle}>
-                {title}
-              </Typography>
-            )}
-            {toolbarContent}
+            <Box display="flex" alignItems="center">
+              {backButton()}
+              {!!title && (
+                <Typography component="h1" className={styles.headerTitle}>
+                  {title}
+                </Typography>
+              )}
+              {toolbarContent}
+            </Box>
+            <SearchInputComponent />
           </Toolbar>
           <Toolbar
             className={clsx(styles.desktopToolbar, "desktop-up")}

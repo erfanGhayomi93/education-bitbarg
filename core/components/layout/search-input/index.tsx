@@ -12,6 +12,7 @@ export default function SearchInputComponent(props: PropTypes) {
   const [open, setOpen] = useState(false);
 
   const handleClickAsSetOldSearches = () => {
+    setInputValue("");
     try {
       let NewSearches: string[] = [];
       const oldSearches = getLocalStorageUser("oldSearches");

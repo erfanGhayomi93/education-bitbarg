@@ -1,5 +1,4 @@
 import useFetch from "@/core/hooks/useFetch";
-import { json } from "stream/consumers";
 
 export const getCategoriesListDs = () => {
    return useFetch("/categories" ,{

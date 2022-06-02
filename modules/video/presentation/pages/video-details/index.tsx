@@ -29,3 +29,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
+
+// export const getStaticPaths = async () => {
+//   const categoriesList = await getCategoriesList();
+
+//   console.log("categoriesList", categoriesList);
+//   return {
+//     paths: categoriesList?.result?.items.map((item : any) => ({
+//       {params : {id : item.enTitle}}
+//     })),
+//     fallback: true,
+//   };
+// };

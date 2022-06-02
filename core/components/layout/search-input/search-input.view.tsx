@@ -15,8 +15,9 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 import { SearchIcon } from "../../common/custom-icon";
+import ClearIcon from "@mui/icons-material/Clear";
 import styles from "./search-input.module.scss";
 
 type PropTypes = {
@@ -37,8 +38,6 @@ export default function SearchInputView({
   searchData,
   handleClickAsSetOldSearches,
 }: PropTypes) {
-  const refInput = useRef<any>();
-
   const uiOldSearches = useCallback(() => {
     const oldSearches = getLocalStorageUser("oldSearches");
     if (oldSearches && !searchText) {
@@ -89,7 +88,9 @@ export default function SearchInputView({
               as={`/video/${item.enTitle}`}
             >
               <div className={styles.box}>
-                <img className={styles.image} src={item.image} />
+                <Box>
+                  <img className={styles.image} src={item.image} />
+                </Box>
                 <Box className={styles.content}>
                   <Typography variant="body1" className={styles.description}>
                     {item.faTitle}
@@ -102,7 +103,12 @@ export default function SearchInputView({
           {items.length > 4 && (
             <div className={styles.more}>
               <Link href="/search/[key]" as={`/search/${searchText}`}>
-                <Button fullWidth color="inherit" variant="outlined">
+                <Button
+                  size="small"
+                  fullWidth
+                  color="inherit"
+                  variant="outlined"
+                >
                   همه نتایج
                 </Button>
               </Link>
@@ -129,26 +135,35 @@ export default function SearchInputView({
               setOpen(false);
             }, 500);
           }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              refInput.current.click();
-            }
-          }}
+          // onKeyDown={(e) => {
+          //   if (e.key === "Enter") {
+          //     refInput.current.click();
+          //   }
+          // }}
           endAdornment={
             <InputAdornment position="end">
-              <Link
-                href="/search/[type]/[key]"
-                as={`/search/key/${searchText ? searchText : null}`}
-                passHref
-              >
+              {searchText ? (
                 <IconButton
-                  ref={refInput}
                   aria-label="toggle password visibility"
                   edge="end"
+                  onClick={() => setInputValue("")}
                 >
-                  <SearchIcon className={styles.searchIcon} />
+                  <ClearIcon className={styles.searchIcon} />
                 </IconButton>
-              </Link>
+              ) : (
+                <Link
+                  href="/search/[type]/[key]"
+                  as={`/search/key/${searchText ? searchText : null}`}
+                  passHref
+                >
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    edge="end"
+                  >
+                    <SearchIcon className={styles.searchIcon} />
+                  </IconButton>
+                </Link>
+              )}
             </InputAdornment>
           }
           label="جستجو در آموزش‌ها..."

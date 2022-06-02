@@ -1,5 +1,5 @@
 .container {
-  margin-top: 48px;
+  padding-top: 60px;
   .boxVideo {
     width: 790px;
     margin: auto;
@@ -85,6 +85,12 @@
 @media (min-width: 900px) {
   .header {
     border: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .container {
+    padding-top: 130px;
   }
 }
 

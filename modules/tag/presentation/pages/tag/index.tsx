@@ -1,20 +1,17 @@
-import {
-  getSearchData,
-  useSearch,
-} from "@/modules/search/domain/usecases/getSearchData";
+import { getTagData, useTag } from "@/modules/tag/domain/usecases/getTagData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
-import SearchView from "./search.view";
+import TagView from "./tag.view";
 
 type PropTypes = {
   dataServer: any;
 };
 
-export default function SearchComponent(props: PropTypes) {
+export default function TagPage(props: PropTypes) {
   const router = useRouter();
-  const { data, error, mutate, size, setSize, isValidating } = useSearch(
-    router?.query?.key,
+  const { data, error, mutate, size, setSize, isValidating } = useTag(
+    router?.query?.tag,
     props.dataServer
   );
 
@@ -43,11 +40,11 @@ export default function SearchComponent(props: PropTypes) {
     router,
   };
 
-  return <SearchView {...allProps} />;
+  return <TagView {...allProps} />;
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const dataServer = await getSearchData(context?.params?.key);
+  const dataServer = await getTagData(context?.params?.tag);
   console.log("context", context);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;

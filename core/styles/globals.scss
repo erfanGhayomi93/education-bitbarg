@@ -379,11 +379,15 @@ span.status-chip {
 .d-none {
   display: none !important;
 }
+
 .desktop-down {
+  flex-direction: column !important;
+  align-items: flex-start;
   @media (min-width: 900px) {
     display: none !important;
   }
 }
+
 .desktop-up {
   @media (max-width: 899px) {
     display: none !important;

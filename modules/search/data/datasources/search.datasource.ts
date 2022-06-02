@@ -5,7 +5,7 @@ export const perPage = 4
 
 export const searchDatasource = (key : any) => {
     console.log("inside",`/search?key=${encodeURI(key)}`)
-    return http.get(`/search?key=${encodeURI(key)}`)
+    return http.get(`/search?key=${encodeURI(key)}&perPage=${perPage}&page=1`)
 }
 
 export const useSearchDs = (key: any , fallback : any) => {

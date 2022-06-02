@@ -20,3 +20,7 @@ export const useCategoriesLoadMoreDs = (enTitle: string | string[] | undefined ,
        }
       );
 }
+
+export function categotrisPathDatasource() {
+    return http.get("/categories")
+}

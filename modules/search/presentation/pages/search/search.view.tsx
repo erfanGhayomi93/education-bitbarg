@@ -23,7 +23,7 @@ export default function searchView(props: PropTypes) {
         toolbarContent={
           <>
             <Typography className={styles.headerTitle}>
-              {items[0]?.faTitle}
+              {router?.query?.key}
             </Typography>
           </>
         }

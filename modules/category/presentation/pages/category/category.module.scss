@@ -1,8 +1,20 @@
 .category {
+  .title {
+    padding: 68px 0 16px;
+    border-bottom: 1px solid var(---text-light-mute);
+    .defaltValue {
+      color: var(--secondary-main);
+      margin-left: 12px;
+    }
+    span {
+      font-weight: bold;
+      display: inline-block;
+    }
+  }
   .box {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 100px;
+    margin-top: 40px;
   }
   .header {
     border-bottom: 1px solid var(--divider);
@@ -24,6 +36,7 @@
   .category {
     .box {
       justify-content: space-around;
+      margin-top: 20px;
     }
   }
 }
@@ -31,5 +44,18 @@
 @media (min-width: 900px) {
   .header {
     border: none !important;
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .category {
+    .title {
+      border-bottom: none;
+      padding-top: 105px;
+
+      span {
+        font-size: var(--font-h5);
+      }
+    }
   }
 }
