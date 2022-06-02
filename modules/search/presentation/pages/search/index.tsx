@@ -2,7 +2,7 @@ import {
   getSearchData,
   useSearch,
 } from "@/modules/search/domain/usecases/getSearchData";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import SearchView from "./search.view";
@@ -46,9 +46,8 @@ export default function SearchComponent(props: PropTypes) {
   return <SearchView {...allProps} />;
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const dataServer = await getSearchData(context?.params?.key);
-  console.log("context", context);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;
 
@@ -56,13 +55,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       dataServer: dataServer.data,
     },
-    revalidate: 60,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
+// export const getStaticPaths: GetStaticPaths = () => {
+//   return {
+//     paths: [],
+//     fallback: true,
+//   };
+// };

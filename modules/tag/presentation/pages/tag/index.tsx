@@ -45,7 +45,6 @@ export default function TagPage(props: PropTypes) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const dataServer = await getTagData(context?.params?.tag);
-  console.log("context", context);
 
   if (!dataServer.data?.result || dataServer.error) throw dataServer.error;
 
