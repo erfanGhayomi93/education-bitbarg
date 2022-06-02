@@ -68,8 +68,8 @@ export default function VideoDetailsView({ data, isFallback }: PropTypes) {
               <Box className={styles.tags}>
                 {data.post.tags.map((item: any) => (
                   <Link
-                    href="/search/[tag]/[key]"
-                    as={`/search/tag/${item.slug}`}
+                    href="/search/[key]"
+                    as={`/search/${item.slug}`}
                     key={item.id}
                   >
                     <Typography variant="body1" component="span">
