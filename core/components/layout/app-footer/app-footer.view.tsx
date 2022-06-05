@@ -28,7 +28,7 @@ export default function AppFooterView({ dataCategory }: PropTypes) {
             <ul>
               {items.map((item: any, ind: number) => (
                 <li key={ind}>
-                  <Link href={`/category/${item.enTitle}`} passHref>
+                  <Link as={`/category/${item.enTitle}`} href="/category/[enTitle]" passHref>
                     <Typography component="a">{item.faTitle}</Typography>
                   </Link>
                 </li>

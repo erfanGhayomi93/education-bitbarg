@@ -1,4 +1,5 @@
 import {
+  getCategoriesListPaths,
   getCategoryData,
   useCategoriesLoadMore,
 } from "@/modules/category/domain/usecases/getCategoryData";
@@ -57,9 +58,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths: any = async () => {
+  const pathsCategory = await getCategoriesListPaths();
+
+  const setPaths = () => {
+    if (!pathsCategory?.data) {
+      return []
+    }
+
+    return (pathsCategory?.data?.items?.map((item: any) => ({
+      params: { enTitle: item?.enTitle }
+    })))
+  }
+
   return {
-    paths: [],
+    paths: setPaths(),
     fallback: true,
   };
 };
