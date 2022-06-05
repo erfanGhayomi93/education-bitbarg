@@ -4,7 +4,6 @@ import styles from "./card-post.module.scss";
 import timeLineIcon from "@/public/assets/images/time-line.svg";
 import { POst } from "@/modules/home/domain/entities/home";
 import Link from "next/link";
-import SkeletonView from "./skeleton";
 
 type PropTypes = {
   data: POst;
@@ -12,7 +11,7 @@ type PropTypes = {
 export default function CardPostView({ data }: PropTypes) {
   return (
     <>
-      <Link href="/video/[id]" as={`/video/${data.enTitle}`}>
+      <Link href="/video/[id]" as={`/video/${data.enTitle}`} passHref>
         <div className={styles.cardPost}>
           <Box
             className={styles.image}

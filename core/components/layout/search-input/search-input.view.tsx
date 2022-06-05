@@ -86,6 +86,7 @@ export default function SearchInputView({
               key={item.id}
               href="/video/[id]"
               as={`/video/${item.enTitle}`}
+              passHref
             >
               <div className={styles.box}>
                 <Box>

@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 import CardPostComponent from "../card-post";
 import styles from "./view-summary-posts.module.scss";
 import DoneIcon from "@mui/icons-material/Done";
