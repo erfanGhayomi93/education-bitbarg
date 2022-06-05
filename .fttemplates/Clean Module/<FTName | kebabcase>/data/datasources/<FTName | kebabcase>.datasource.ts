@@ -1,1 +1,0 @@
-export function <FTName | pascalcase>Datasource() {}
