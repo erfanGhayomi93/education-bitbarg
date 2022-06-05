@@ -12,40 +12,42 @@ export default function CardPostView({ data }: PropTypes) {
   return (
     <>
       <Link href="/video/[id]" as={`/video/${data.enTitle}`} passHref>
-        <div className={styles.cardPost}>
-          <Box
-            className={styles.image}
-            style={{
-              background: `url(${data.image})`,
-            }}
-          ></Box>
-          <div>
-            <Box className={styles.topContent}>
-              <Chip
-                className={styles.category}
-                label={data.category}
-                variant="filled"
-                color="info"
-              />
+        <a>
+          <div className={styles.cardPost}>
+            <Box
+              className={styles.image}
+              style={{
+                background: `url(${data.image})`,
+              }}
+            ></Box>
+            <div>
+              <Box className={styles.topContent}>
+                <Chip
+                  className={styles.category}
+                  label={data.category}
+                  variant="filled"
+                  color="info"
+                />
 
-              <Box display="flex">
-                <Image src={timeLineIcon} />
-                <Typography
-                  className={styles.publishedAt}
-                  variant="body1"
-                  component="span"
-                >
-                  {data.publishedAt}
+                <Box display="flex">
+                  <Image src={timeLineIcon} />
+                  <Typography
+                    className={styles.publishedAt}
+                    variant="body1"
+                    component="span"
+                  >
+                    {data.publishedAt}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box className={styles.content}>
+                <Typography variant="h6" component="p">
+                  {data.faTitle}
                 </Typography>
               </Box>
-            </Box>
-            <Box className={styles.content}>
-              <Typography variant="h6" component="p">
-                {data.faTitle}
-              </Typography>
-            </Box>
+            </div>
           </div>
-        </div>
+        </a>
       </Link>
     </>
   );

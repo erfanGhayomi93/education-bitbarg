@@ -88,17 +88,19 @@ export default function SearchInputView({
               as={`/video/${item.enTitle}`}
               passHref
             >
-              <div className={styles.box}>
-                <Box>
-                  <img className={styles.image} src={item.image} />
-                </Box>
-                <Box className={styles.content}>
-                  <Typography variant="body1" className={styles.description}>
-                    {item.faTitle}
-                  </Typography>
-                  <Chip label={item.category} variant="filled" color="info" />
-                </Box>
-              </div>
+              <a>
+                <div className={styles.box}>
+                  <Box>
+                    <img className={styles.image} src={item.image} />
+                  </Box>
+                  <Box className={styles.content}>
+                    <Typography variant="body1" className={styles.description}>
+                      {item.faTitle}
+                    </Typography>
+                    <Chip label={item.category} variant="filled" color="info" />
+                  </Box>
+                </div>
+              </a>
             </Link>
           ))}
           {items.length > 4 && (
