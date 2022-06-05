@@ -11,6 +11,10 @@ export default function VideoDetailsComponent(props: PropTypes) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
   const detailsData = await getDetailsData(context?.params?.id);
 
   if (!detailsData.data || detailsData.error) throw detailsData.error;

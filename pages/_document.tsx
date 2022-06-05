@@ -6,11 +6,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="fa">
         <Head>
-          <link
-            rel="apple-touch-icon"
-            sizes="192x192"
-            href="/pwa/icons/icon-192x192.png"
-          />
           <link rel="stylesheet" href="/fonts/style.css" />
           <meta charSet="UTF-8" />
 
