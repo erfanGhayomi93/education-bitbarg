@@ -17,7 +17,7 @@ export default function CardPostView({ data }: PropTypes) {
             <Box
               className={styles.image}
               style={{
-                background: `url(${data.image})`,
+                backgroundImage: `url(${data.image})`,
               }}
             ></Box>
             <div>

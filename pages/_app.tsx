@@ -31,7 +31,8 @@ function App(props: PropTypes) {
         <CacheProvider value={props.rtlCache || clientSideRtlCache}>
           <Head>
             <title>{localize("APP__TITLE")}</title>
-            <meta name="description" content="Descriptions" />
+            <meta name="description" content="آموزش بیت برگ" />
+            <meta name="header-title" content="عنوان نمایشی در اپلیکیشن" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
