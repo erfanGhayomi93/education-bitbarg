@@ -2,8 +2,31 @@
   margin: 160px 0 75px;
   .box {
     display: flex;
+    .flexItem {
+      display: flex;
+      justify-content: space-around;
+      flex-grow: 1;
+    }
     .item {
       margin-left: 90px;
+      .copyright {
+        background-color: var(--background-secondary);
+        border-radius: 12px;
+        padding: 8px 12px;
+        margin-top: 24px;
+        p {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          justify-content: center;
+          > * {
+            margin: 0 0.5ch;
+          }
+          // > :first-child {
+          //   width: 100%;
+          // }
+        }
+      }
       ul {
         padding: 0;
         margin: 0;
@@ -34,19 +57,22 @@
 
 @media only screen and (max-width: 1200px) {
   .footer {
-    margin-top: 90px;
+    margin: 90px 0 16px;
     .text {
       width: 100% !important;
     }
     .box {
       flex-wrap: wrap;
+      flex-direction: column-reverse;
       .item {
         margin: 0;
-        width: 50%;
         margin-top: 46px;
         &:nth-child(1) {
           width: 100%;
           margin-top: 12px;
+        }
+        .desktopup {
+          display: none;
         }
       }
     }

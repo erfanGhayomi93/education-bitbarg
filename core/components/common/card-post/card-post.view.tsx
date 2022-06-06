@@ -11,9 +11,9 @@ type PropTypes = {
 export default function CardPostView({ data }: PropTypes) {
   return (
     <>
-      <Link href="/video/[id]" as={`/video/${data.enTitle}`} passHref>
-        <a>
-          <div className={styles.cardPost}>
+      <div className={styles.cardPost}>
+        <Link href="/video/[id]" as={`/video/${data.enTitle}`} passHref>
+          <a>
             <Box
               className={styles.image}
               style={{
@@ -46,9 +46,9 @@ export default function CardPostView({ data }: PropTypes) {
                 </Typography>
               </Box>
             </div>
-          </div>
-        </a>
-      </Link>
+          </a>
+        </Link>
+      </div>
     </>
   );
 }

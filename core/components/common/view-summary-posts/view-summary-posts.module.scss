@@ -71,6 +71,7 @@
   .summaryPosts {
     padding-left: 0;
     padding-right: 0;
+    margin: 10px auto;
     .parentTitle {
       flex-direction: column;
       .title {
@@ -98,6 +99,17 @@
       flex-wrap: wrap;
       justify-content: center;
       overflow: unset;
+      position: relative;
+      &::after {
+        content: "";
+        width: 100%;
+        height: 10px;
+        position: absolute;
+        display: block;
+        top: -10px;
+        background-color: white;
+        z-index: 2;
+      }
     }
     &::after {
       content: "";
