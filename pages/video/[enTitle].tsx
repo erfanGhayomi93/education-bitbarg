@@ -1,5 +1,6 @@
 import VideoDetailsComponent, {
-  getServerSideProps,
+  getStaticProps,
+  getStaticPaths,
 } from "@/modules/video/presentation/pages/video-details";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -26,4 +27,4 @@ const VideoDetails: NextPage<PropTypes> = (props) => {
 };
 
 export default VideoDetails;
-export { getServerSideProps };
+export { getStaticProps, getStaticPaths };

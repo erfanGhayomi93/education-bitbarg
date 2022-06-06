@@ -14,7 +14,9 @@ const Tag: NextPage<PropTypes> = (props) => {
   const router = useRouter();
   return (
     <>
-      <Head>{/* <title>{router.query.enTitle}</title> */}</Head>
+      <Head>
+        <title>{router?.query?.tag}</title>
+      </Head>
       <TagPage {...props} />
     </>
   );

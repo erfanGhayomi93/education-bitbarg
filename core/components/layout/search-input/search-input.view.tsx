@@ -84,7 +84,7 @@ export default function SearchInputView({
           {items.slice(0, 4).map((item: POst) => (
             <Link
               key={item.id}
-              href="/video/[id]"
+              href="/video/[enTitle]"
               as={`/video/${item.enTitle}`}
               passHref
             >

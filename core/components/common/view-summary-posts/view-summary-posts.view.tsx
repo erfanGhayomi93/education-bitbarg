@@ -117,7 +117,7 @@ export default function viewSummaryPostsView({
               ))}
         </Box>
       </Container>
-      {category && (
+      {category && data?.length > 8 && (
         <Container>
           <Box className={styles.showMore}>
             <Link href="/category/[enTitle]" as={`/category/${activeCategory}`}>

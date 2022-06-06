@@ -1,7 +1,7 @@
 import http from "@/core/http";
 import useSWRInfinite from "swr/infinite";
 
-export const perPage = 4
+export const perPage = 8
 
 export const searchDatasource = (key : any) => {
     return http.get(`/search?key=${encodeURI(key)}&perPage=${perPage}&page=1`)

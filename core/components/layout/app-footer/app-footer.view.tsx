@@ -56,7 +56,9 @@ export default function AppFooterView({ dataCategory }: PropTypes) {
                 دسترسی سریع
               </Typography>
               <ul>
-                <li>تماس ما</li>
+                <li>
+                  <a href="tel:02191079677">تماس ما</a>
+                </li>
               </ul>
             </div>
           </Box>

@@ -1,7 +1,7 @@
 import http from "@/core/http";
 import useSWRInfinite from "swr/infinite";
 
-export const perPage = 4
+export const perPage = 8
 
 
 export function CategoryDatasource(enTitle : string | string[] | undefined) {

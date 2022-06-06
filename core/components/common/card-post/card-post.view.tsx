@@ -12,7 +12,7 @@ export default function CardPostView({ data }: PropTypes) {
   return (
     <>
       <div className={styles.cardPost}>
-        <Link href="/video/[id]" as={`/video/${data.enTitle}`} passHref>
+        <Link href="/video/[enTitle]" as={`/video/${data.enTitle}`} passHref>
           <a>
             <Box
               className={styles.image}

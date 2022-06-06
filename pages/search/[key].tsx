@@ -1,5 +1,6 @@
 import SearchComponent, {
-  getServerSideProps,
+  getStaticProps,
+  getStaticPaths,
 } from "@/modules/search/presentation/pages/search";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -13,11 +14,13 @@ const Search: NextPage<PropTypes> = (props) => {
   const router = useRouter();
   return (
     <>
-      <Head>{/* <title>{router.query.enTitle}</title> */}</Head>
+      <Head>
+        <title>{router?.query?.key}</title>
+      </Head>
       <SearchComponent {...props} />
     </>
   );
 };
 
 export default Search;
-export { getServerSideProps };
+export { getStaticProps, getStaticPaths };
