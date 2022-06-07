@@ -154,18 +154,9 @@ export default function SearchInputView({
                   <ClearIcon className={styles.searchIcon} />
                 </IconButton>
               ) : (
-                <Link
-                  href="/search/[type]/[key]"
-                  as={`/search/key/${searchText ? searchText : null}`}
-                  passHref
-                >
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    edge="end"
-                  >
-                    <SearchIcon className={styles.searchIcon} />
-                  </IconButton>
-                </Link>
+                <IconButton aria-label="toggle password visibility" edge="end">
+                  <SearchIcon className={styles.searchIcon} />
+                </IconButton>
               )}
             </InputAdornment>
           }

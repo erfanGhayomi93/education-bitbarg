@@ -3,7 +3,7 @@ import {
   getCategoryData,
   useCategoriesLoadMore,
 } from "@/modules/category/domain/usecases/getCategoryData";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import CategoryView from "./category.view";
@@ -63,13 +63,13 @@ export const getStaticPaths: any = async () => {
 
   const setPaths = () => {
     if (!pathsCategory?.data) {
-      return []
+      return [];
     }
 
-    return (pathsCategory?.data?.items?.map((item: any) => ({
-      params: { enTitle: item?.enTitle }
-    })))
-  }
+    return pathsCategory?.data?.items?.map((item: any) => ({
+      params: { enTitle: item?.enTitle },
+    }));
+  };
 
   return {
     paths: setPaths(),
