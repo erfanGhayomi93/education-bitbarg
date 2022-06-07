@@ -1,98 +1,67 @@
-FROM node:16 AS base
-WORKDIR /base
-COPY package*.json ./
-RUN npm install
-COPY . .
 
-FROM base AS build
-ENV NODE_ENV=production
-WORKDIR /build
-COPY --from=base /base ./
-RUN npm run build
+# Double-container Dockerfile for separated build process.
+# If you're just copy-pasting this, don't forget a .dockerignore!
 
-FROM node:16 AS production
-ENV NODE_ENV=production
+# We're starting with the same base image, but we're declaring
+# that this block outputs an image called DEPS that we
+# won't be deploying - it just installs our Yarn deps
+FROM node:16-alpine AS deps
+
+# If you need libc for any of your deps, uncomment this line:
+# RUN apk add --no-cache libc6-compat
+
+# Copy over ONLY the package.json and yarn.lock
+# so that this `yarn install` layer is only recomputed
+# if these dependency files change. Nice speed hack!
 WORKDIR /app
-RUN yarn add sharp
-COPY --from=build /build/package*.json ./
-COPY --from=build /build/.next ./.next
-COPY --from=build /build/public ./public
-RUN npm install next
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# END DEPS IMAGE
+
+# Now we make a container to handle our Build
+FROM node:16-alpine AS BUILD_IMAGE
+
+# Set up our work directory again
+WORKDIR /app
+
+# Bring over the deps we installed and now also
+# the rest of the source code to build the Next
+# server for production
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN yarn build
+
+# Remove all the development dependencies since we don't
+# need them to run the actual server.
+RUN rm -rf node_modules
+RUN yarn install --production --frozen-lockfile --ignore-scripts --prefer-offline
+
+# END OF BUILD_IMAGE
+
+# This starts our application's run image - the final output of build.
+FROM node:14-alpine
+
+ENV NODE_ENV production
+
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+# Pull the built files out of BUILD_IMAGE - we need:
+# 1. the package.json and yarn.lock
+# 2. the Next build output and static files
+# 3. the node_modules.
+WORKDIR /app
+COPY --from=BUILD_IMAGE --chown=nextjs:nodejs /app/package.json /app/yarn.lock ./
+COPY --from=BUILD_IMAGE --chown=nextjs:nodejs /app/node_modules ./node_modules
+COPY --from=BUILD_IMAGE --chown=nextjs:nodejs /app/public ./public
+COPY --from=BUILD_IMAGE --chown=nextjs:nodejs /app/.next ./.next
+
+# 4. OPTIONALLY the next.config.js, if your app has one
+# COPY --from=BUILD_IMAGE --chown=nextjs:nodejs /app/next.config.js  ./
+
+USER nextjs
 
 EXPOSE 3000
-CMD ["npm","start"]
 
-
-
-# # Base on offical Node.js Alpine image
-# FROM node:16-alpine
-
-# # Set working directory
-# WORKDIR /usr/app
-
-# RUN apt-get update --allow-releaseinfo-change && apt-get install -y nginx
-
-
-
-# # Copy package.json and package-lock.json before other files
-# # Utilise Docker cache to save re-installing dependencies if unchanged
-# COPY ./package*.json ./
-# #RUN npm install typescript --dev
-# # Install dependencies
-# RUN npm install --force && \
-#     npm cache clean --force
-
-# # Copy all files
-# COPY ./ ./
-# ENV NODE_ENV=production
-# # Build app
-# RUN npm run build
-
-# # Expose the listening port
-# EXPOSE 3000
-
-# RUN chmod -R 777 /usr/app/.next/cache
-
-
-# # Run container as non-root (unprivileged) user
-# # The node user is provided in the Node.js Alpine base image
-# USER node
-
-# # Run npm start script when container starts
-
-# CMD [ "npm","run", "start" ]
-
-
-# # Build the app
-# FROM node:16-alpine as build
-# WORKDIR /app
-
-# COPY . .
-# RUN npm ci
-# RUN npm run build
-# COPY ./.next ./.next
-
-
-# # Run appx
-# FROM node:16-alpine
-
-# # Only copy files required to run the app
-# COPY --from=build /app/.next ./
-# COPY --from=build /app/package.json ./
-# COPY --from=build /app/package-lock.json ./
-
-# EXPOSE 3000
-
-# # Required for healthcheck defined in docker-compose.yml
-# # If you don't have a healthcheck that uses curl, don't install it
-# RUN apk --no-cache add curl
-
-# # By adding --production npm's devDependencies are not installed
-# RUN npm ci --production
-# RUN ./node_modules/.bin/next telemetry disable
-
-# RUN addgroup -g 1001 -S nodejs
-# RUN adduser -S nextjs -u 1001
-
-# USER nextjs
-# CMD ["npm", "start"]
+CMD [ "yarn", "start" ]
