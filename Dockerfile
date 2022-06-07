@@ -40,7 +40,7 @@ RUN yarn install --production --frozen-lockfile --ignore-scripts --prefer-offlin
 # END OF BUILD_IMAGE
 
 # This starts our application's run image - the final output of build.
-FROM node:14-alpine
+FROM node:16-alpine
 
 ENV NODE_ENV production
 
