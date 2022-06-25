@@ -19,11 +19,10 @@ export default function CategoryView(props: PropTypes) {
       <AppHeaderComponent
         className={styles.header}
         backHref="/"
-        absoluteHref
         toolbarContent={
           <>
-            <Typography className={styles.headerTitle}>
-              {items[0]?.faTitle}
+            <Typography variant="h6" className={styles.headerTitle}>
+              {items[0]?.category}
             </Typography>
           </>
         }

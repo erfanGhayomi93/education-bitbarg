@@ -126,7 +126,7 @@ export default function SearchInputView({
   return (
     <div className={styles.boxControl}>
       <FormControl className={styles.formControl} variant="outlined">
-        <InputLabel htmlFor="search-input">جستجو در آموزش‌ها...</InputLabel>
+        {/* <InputLabel htmlFor="search-input">جستجو در آموزش‌ها...</InputLabel> */}
         <OutlinedInput
           id="search-input"
           value={inputValue}
@@ -143,6 +143,13 @@ export default function SearchInputView({
           //     refInput.current.click();
           //   }
           // }}
+          startAdornment={
+            <InputAdornment position="start">
+              <IconButton aria-label="toggle password visibility" edge="end">
+                <SearchIcon className={styles.searchIcon} />
+              </IconButton>
+            </InputAdornment>
+          }
           endAdornment={
             <InputAdornment position="end">
               {searchText ? (
@@ -153,14 +160,10 @@ export default function SearchInputView({
                 >
                   <ClearIcon className={styles.searchIcon} />
                 </IconButton>
-              ) : (
-                <IconButton aria-label="toggle password visibility" edge="end">
-                  <SearchIcon className={styles.searchIcon} />
-                </IconButton>
-              )}
+              ) : null}
             </InputAdornment>
           }
-          label="جستجو در آموزش‌ها..."
+          placeholder="جستجو در آموزش‌ها..."
           fullWidth
           autoComplete="off"
         />

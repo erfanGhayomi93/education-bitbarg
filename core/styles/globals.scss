@@ -6,8 +6,8 @@
 // @import "swiper/css";
 // @import "swiper/css/pagination";
 
-@import "/core/theme/variables.scss";
-@import "/fonts/style.css";
+@import "@/core/theme/variables.scss";
+@import "@/public/fonts/style.css";
 
 html {
   font-size: 16.333333333333333px;
@@ -383,6 +383,7 @@ span.status-chip {
 .desktop-down {
   flex-direction: column !important;
   align-items: flex-start;
+  justify-content: center;
   @media (min-width: 900px) {
     display: none !important;
   }

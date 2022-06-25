@@ -14,7 +14,7 @@ import {
   ButtonBase,
   Avatar,
 } from "@mui/material";
-import Link from "next/link";
+// import Link from "next/link";
 import { Fragment, useMemo } from "react";
 // import { currencyFormat } from "@/core/helpers";
 import CloseIcon from "@mui/icons-material/Close";
@@ -109,7 +109,7 @@ export default function AppSideBarView(props: PropTypes) {
 
       divider,
 
-      theme,
+      // theme,
     } = {
       home: {
         primary: "خانه",
@@ -225,16 +225,16 @@ export default function AppSideBarView(props: PropTypes) {
         icon: CommentsIcon,
         href: "/users-comments",
       },
-      theme: {
-        primary: isDarkTheme ? "تغییر به حالت روشن" : "تغییر به حالت تیره",
-        icon: ThemeIcon,
-        secondary: () => (
-          <ListItemIcon sx={{ minWidth: 0 }}>
-            {isDarkTheme ? <DarkModeIcon /> : <LightModeIcon />}
-          </ListItemIcon>
-        ),
-        onClick: toggleTheme,
-      },
+      // theme: {
+      //   primary: isDarkTheme ? "تغییر به حالت روشن" : "تغییر به حالت تیره",
+      //   icon: ThemeIcon,
+      //   secondary: () => (
+      //     <ListItemIcon sx={{ minWidth: 0 }}>
+      //       {isDarkTheme ? <DarkModeIcon /> : <LightModeIcon />}
+      //     </ListItemIcon>
+      //   ),
+      //   onClick: toggleTheme,
+      // },
       aboutUs: {
         primary: "درباره ما",
         icon: AboutIcon,
@@ -266,7 +266,7 @@ export default function AppSideBarView(props: PropTypes) {
         orders,
         wallet,
         authentication,
-        theme,
+        // theme,
         divider,
 
         fee,
@@ -290,7 +290,7 @@ export default function AppSideBarView(props: PropTypes) {
       assets,
       livePrice,
       wallet,
-      theme,
+      // theme,
       divider,
 
       fee,

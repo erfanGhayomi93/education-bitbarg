@@ -5,7 +5,7 @@ import NewstPostIcon from "@/public/assets/images/newstPost.svg";
 import CategoriesIcon from "@/public/assets/images/categories.svg";
 import AppHeaderComponent from "@/core/components/layout/app-header";
 import styles from "./home.module.scss";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 type PropTypes = {
   data: any;
@@ -32,8 +32,8 @@ export default function HomeView({
         absoluteHref
         toolbarContent={
           <>
-            <Typography className={styles.headerTitle}>
-              مجموعه‌ای از آموزش‌های ارز دیجیتال
+            <Typography variant="h6" className={styles.headerTitle}>
+              آموزش‌
             </Typography>
           </>
         }
@@ -41,6 +41,7 @@ export default function HomeView({
       />
 
       <HeaderHomeComponent {...data.meta} />
+
       <ViewSummaryPostsComponent
         data={mostSeenPosts}
         title={MostSeenIcon}

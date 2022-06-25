@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="fa">
         <Head>
-          <link rel="stylesheet" href="/fonts/style.css" />
+          {/* <link rel="stylesheet" href="@/public/fonts/style.css" /> */}
           <meta charSet="UTF-8" />
 
           {(this.props as any).emotionStyleTags}

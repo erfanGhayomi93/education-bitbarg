@@ -20,10 +20,9 @@ export default function VideoDetailsView({ data, isFallback }: PropTypes) {
       <AppHeaderComponent
         className={styles.header}
         backHref="/"
-        absoluteHref
         toolbarContent={
           <>
-            <Typography className={styles.headerTitle}>
+            <Typography variant="h6" className={styles.headerTitle}>
               {data?.post?.faTitle}
             </Typography>
           </>

@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 import { ThemeOptions, PaletteOptions } from "@mui/material";
 import { alpha, borderColor, CSSInterpolation } from "@mui/system";
+import { NoEncryption } from "@mui/icons-material";
 
 const typography = {
   fontFamily: "IRANSansXFaNum, Arial",
@@ -186,8 +187,8 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
       MuiContainer: {
         styleOverrides: {
           root: {
-            paddingLeft: 12,
-            paddingRight: 12,
+            paddingLeft: 16,
+            paddingRight: 16,
           },
         },
       },
@@ -451,17 +452,18 @@ function makeTheme(dark: boolean, palette: PaletteOptions): ThemeOptions {
           },
         },
       },
-      // MuiOutlinedInput: {
-      //   styleOverrides: {
-      //     root: {
-      //       // backgroundColor: palette.background?.default,
-      //     },
-      //     input: {
-      //       boxSizing: "border-box",
-      //       // height: 48,
-      //     },
-      //   },
-      // },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            backgroundColor: palette.background?.default,
+          },
+          input: {
+            boxSizing: "border-box",
+            height: 52,
+            boxShadow : "none",
+          },
+        },
+      },
       MuiToggleButtonGroup: {
         styleOverrides: {
           root: {

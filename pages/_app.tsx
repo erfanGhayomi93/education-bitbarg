@@ -1,14 +1,14 @@
 import "@/core/styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { themeLight, themeDark } from "@/core/theme";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "@/core/theme/emotionCache";
 import createRtlCache from "@/core/theme/rtl";
-import localize from "@/core/localization";
 import AppComponent from "@/modules/app/presentation/pages/app";
 import useAppTheme from "@/core/hooks/useAppTheme";
 import { ThemeProvider } from "@mui/material/styles";
+import { useState } from "react";
+import { MyContext } from "@/core/components/layout/context";
 
 const clientSideEmotionCache = createEmotionCache();
 const clientSideRtlCache = createRtlCache();
@@ -24,30 +24,35 @@ export default function Root(props: PropTypes) {
 
 function App(props: PropTypes) {
   const theme = useAppTheme();
+  const [isShowHeader, setisShowHeader] = useState(true);
+  const [titlePage, setTitlePage] = useState("");
 
   return (
-    <ThemeProvider theme={theme}>
-      <CacheProvider value={props.emotionCache || clientSideEmotionCache}>
-        <CacheProvider value={props.rtlCache || clientSideRtlCache}>
-          <Head>
-            <title>{localize("APP__TITLE")}</title>
-            <meta name="description" content="آموزش بیت برگ" />
-            <meta name="header-title" content="عنوان نمایشی در اپلیکیشن" />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-            />
-            <meta
+    <MyContext.Provider
+      value={{ isShowHeader, setisShowHeader, titlePage, setTitlePage }}
+    >
+      <ThemeProvider theme={theme}>
+        <CacheProvider value={props.emotionCache || clientSideEmotionCache}>
+          <CacheProvider value={props.rtlCache || clientSideRtlCache}>
+            <Head>
+              <meta name="description" content="آموزش بیت برگ" />
+              <meta name="header-title" content="آموزش" />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+              />
+              {/* <meta
               name="theme-color"
               content={
                 (true ? themeDark : themeLight).palette.background.default
               }
-            />
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-          <AppComponent {...props} />
+            /> */}
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <AppComponent {...props} />
+          </CacheProvider>
         </CacheProvider>
-      </CacheProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </MyContext.Provider>
   );
 }

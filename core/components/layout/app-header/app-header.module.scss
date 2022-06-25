@@ -1,6 +1,24 @@
 .appBar {
   color: var(--text-primary) !important;
   z-index: 1000;
+  .support {
+    position: fixed;
+    width: 101%;
+    height: 100vh;
+    z-index: 1000;
+    iframe {
+      width: 100%;
+      height: 100vh;
+    }
+  }
+  .buttonSupport {
+    padding: 2px 8px;
+    border-radius: 100px;
+    background-color: var(--secondary-light);
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
   .endLogo {
     width: 80px;
     margin-inline-start: auto;
@@ -25,6 +43,20 @@
       }
     }
   }
+  .linkNav {
+    padding: 10px;
+    margin-left: 0;
+    .box {
+      display: flex;
+      align-items: center;
+      svg {
+        font-size: 24px;
+      }
+    }
+  }
+  // .headerTitle {
+  //   margin-right: 14px;
+  // }
 }
 .announcementHolder {
   opacity: 0;
@@ -50,8 +82,8 @@
   }
 }
 
-@media (max-width: 899px) {
-  .appBar {
-    min-height: 130px;
-  }
-}
+// @media (max-width: 899px) {
+//   .appBar {
+//     min-height: 130px;
+//   }
+// }

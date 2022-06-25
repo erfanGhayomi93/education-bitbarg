@@ -12,10 +12,13 @@ type PropTypes = {
 
 const Search: NextPage<PropTypes> = (props) => {
   const router = useRouter();
+  let title: any = router?.query?.key || "";
+
   return (
     <>
       <Head>
-        <title>{router?.query?.key}</title>
+        <title>{title}</title>
+        <meta name="header-title" content={title} />
       </Head>
       <SearchComponent {...props} />
     </>

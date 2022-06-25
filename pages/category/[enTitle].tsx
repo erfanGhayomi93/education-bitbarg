@@ -4,18 +4,22 @@ import CategoryComponent, {
 } from "@/modules/category/presentation/pages/category";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 type PropTypes = {
   dataServer: any;
 };
 
 const VideoDetails: NextPage<PropTypes> = (props) => {
-  const router = useRouter();
+  // const category = props?.dataServer?.result?.items?.posts[0]?.category;
+
   return (
     <>
       <Head>
-        <title>{router.query.enTitle}</title>
+        <title>{props?.dataServer?.result?.items?.posts[0]?.category}</title>
+        <meta
+          name="header-title"
+          content={props?.dataServer?.result?.items?.posts[0]?.category}
+        />
       </Head>
       <CategoryComponent {...props} />
     </>

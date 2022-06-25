@@ -19,10 +19,9 @@ export default function TagView(props: PropTypes) {
       <AppHeaderComponent
         className={styles.header}
         backHref="/"
-        absoluteHref
         toolbarContent={
           <>
-            <Typography className={styles.headerTitle}>
+            <Typography variant="h6" className={styles.headerTitle}>
               {router?.query?.tag}
             </Typography>
           </>

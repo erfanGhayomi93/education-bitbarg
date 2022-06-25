@@ -57,7 +57,7 @@ export default function AppFooterView({ dataCategory }: PropTypes) {
               </Typography>
               <ul>
                 <li>
-                  <a href="tel:02191079677">تماس ما</a>
+                  <a href="tel:02191079677">تماس با ما</a>
                 </li>
               </ul>
             </div>

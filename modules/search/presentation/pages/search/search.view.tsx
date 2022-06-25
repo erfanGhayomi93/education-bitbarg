@@ -19,10 +19,9 @@ export default function searchView(props: PropTypes) {
       <AppHeaderComponent
         className={styles.header}
         backHref="/"
-        absoluteHref
         toolbarContent={
           <>
-            <Typography className={styles.headerTitle}>
+            <Typography variant="h6" className={styles.headerTitle}>
               {router?.query?.key}
             </Typography>
           </>

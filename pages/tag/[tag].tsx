@@ -12,10 +12,14 @@ type PropTypes = {
 
 const Tag: NextPage<PropTypes> = (props) => {
   const router = useRouter();
+  let title: any = router?.query?.tag || "";
+
   return (
     <>
       <Head>
-        <title>{router?.query?.tag}</title>
+        <meta name="header-title" content={title} />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>{title}</title>
       </Head>
       <TagPage {...props} />
     </>

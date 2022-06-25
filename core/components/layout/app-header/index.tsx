@@ -1,9 +1,10 @@
 import AppHeaderView from "./app-header.view";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppBarProps } from "@mui/material";
 import useOpenLogin from "@/core/hooks/useOpenLogin";
 import { useRouter } from "next/router";
 import useUser from "@/modules/auth/domain/usecases/useUser";
+import { MyContext } from "../context";
 
 type PropTypes = {
   children?: any;
@@ -28,14 +29,28 @@ export default function AppHeaderComponent(props: PropTypes) {
     setAnnouncementClosed(true);
     localStorage.setItem("announcementClosed", Date.now().toString());
   };
+  const [open, setOpen] = useState(false);
+  const consumer: any = useContext(MyContext);
+
+  useEffect(() => {
+    window.onmessage = function (e) {
+      if (e.data == "closeSupportModal") {
+        setOpen(false);
+      }
+    };
+  }, []);
 
   const handleBack = (e: any) => {
     if (window?.history?.state?.idx) {
       e.preventDefault();
       router.back();
+    } else {
+      router.push(props.backHref || "/test");
     }
   };
-  if (router.query.application) return null;
+  if (!consumer.isShowHeader) {
+    return null;
+  }
   return (
     <AppHeaderView
       {...props}
@@ -48,6 +63,8 @@ export default function AppHeaderComponent(props: PropTypes) {
         openLogin,
         closeAnnouncement,
         announcementClosed,
+        open,
+        setOpen,
       }}
     />
   );

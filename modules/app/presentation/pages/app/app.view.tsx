@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import WarningIcon from "@mui/icons-material/Warning";
 import { createRef } from "react";
 import AppFooterComponent from "@/core/components/layout/app-footer";
-import styles from "./app.module.scss";
+import LoadingComponent from "@/core/components/common/loading";
 
 export default function AppView(props: AppProps) {
   const { Component, pageProps } = props;
@@ -36,6 +36,7 @@ export default function AppView(props: AppProps) {
         }}
       >
         <CssBaseline />
+        <LoadingComponent />
         <Component {...pageProps} />
         <AppFooterComponent />
       </SnackbarProvider>

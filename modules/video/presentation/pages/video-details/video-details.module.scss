@@ -6,11 +6,13 @@
     position: relative;
     .video {
       width: 100%;
-      height: 444px;
+      height: 447px;
       margin: 0 auto;
       .iframe {
         width: 100%;
         height: 100%;
+        border-radius: 12px;
+        border: 1px solid black;
       }
     }
     .details {
@@ -60,7 +62,7 @@
   }
   .headerTitle {
     flex: 1 1;
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     min-width: 0;
@@ -90,7 +92,7 @@
 
 @media (max-width: 899px) {
   .container {
-    padding-top: 130px;
+    padding-top: 56px;
   }
 }
 

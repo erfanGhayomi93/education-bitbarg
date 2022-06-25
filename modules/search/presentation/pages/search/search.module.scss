@@ -24,7 +24,7 @@
     }
     .headerTitle {
       flex: 1 1;
-      font-weight: 600;
+      font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
       min-width: 0;
@@ -49,7 +49,7 @@
 @media only screen and (max-width: 899px) {
   .search {
     .title {
-      padding: 110px 0 16px;
+      padding: 16px 0 16px;
       border-bottom: none;
     }
   }

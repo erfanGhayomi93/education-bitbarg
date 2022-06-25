@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       dataServer: dataServer.data,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };
 
@@ -73,6 +73,6 @@ export const getStaticPaths: any = async () => {
 
   return {
     paths: setPaths(),
-    fallback: true,
+    fallback: "blocking",
   };
 };

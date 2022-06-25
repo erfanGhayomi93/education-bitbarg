@@ -12,11 +12,13 @@ type PropTypes = {
 
 const VideoDetails: NextPage<PropTypes> = (props) => {
   const router = useRouter();
-  const { faTitle } = !router.isFallback ? props.data.post : { faTitle: "" };
+  // const { faTitle } = props.data.post;
+
   return (
     <>
       <Head>
-        <title>{faTitle}</title>
+        <meta name="header-title" content={props.data.post.faTitle} />
+        <title>{props.data.post.faTitle}</title>
       </Head>
       <VideoDetailsComponent
         {...props}
